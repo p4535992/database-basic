@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.hibernate:hibernate-osgi:5.0.7.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-osgi/5.0.7.Final/d53730abfd450f4870e54652056d589e4f5b1a9d/hibernate-osgi-5.0.7.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-osgi/5.0.7.Final/b13d21c180f736052692fe06c9e0832f18a5dfc8/hibernate-osgi-5.0.7.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

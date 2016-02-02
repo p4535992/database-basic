@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.hibernate:hibernate-infinispan:5.0.7.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-infinispan/5.0.7.Final/b56f573a6006b86ccc6bf9dbbce8fa699ae0f9a8/hibernate-infinispan-5.0.7.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-infinispan/5.0.7.Final/6b989529f5dfb74727429c67186a4d4ebd03b24/hibernate-infinispan-5.0.7.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

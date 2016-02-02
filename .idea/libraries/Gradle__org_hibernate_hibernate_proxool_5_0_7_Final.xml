@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.hibernate:hibernate-proxool:5.0.7.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-proxool/5.0.7.Final/1e69caa6a46ae7e25ccb8e9978a1fbbaffd25cb/hibernate-proxool-5.0.7.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hibernate/hibernate-proxool/5.0.7.Final/1739e5e749866321b84eecc2efe2233ef51446a2/hibernate-proxool-5.0.7.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

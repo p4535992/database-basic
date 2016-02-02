@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.openrdf.sesame:sesame-repository-manager:2.8.8">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-manager/2.8.8/c7cc005c621e0935d60ff56265d1c8192ee66b1a/sesame-repository-manager-2.8.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openrdf.sesame/sesame-repository-manager/2.8.8/76e349a8d0cc6ccfa7d5126fea0eb8d4968bbf93/sesame-repository-manager-2.8.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
