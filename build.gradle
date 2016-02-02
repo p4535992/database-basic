@@ -12,8 +12,45 @@ apply plugin: 'application'
 /*https://github.com/nebula-plugins/gradle-extra-configurations-plugin*/
 apply plugin: 'nebula.optional-base'
 
+compileJava {
+    // This only works when forking and passing 'javac' as an executable
+    options.compilerArgs << '-XDignore.symbol.file'
+    options.fork = true
+    options.forkOptions.executable = 'javac'
+}
+
+javadoc {
+    // These get ignored
+    // options.addStringOption('XDignore.symbol.file', null)
+    // options.addStringOption('XDignore.symbol.file')
+
+    // This one fails build - I am assuming it's trying to parse ''
+    // options.addStringOption('XDignore.symbol.file')
+
+    // This works, but it's an ugly hack
+    options.addStringOption('XDignore.symbol.file', '-quiet')
+    options.addStringOption("sourcepath", "")
+}
+
+allprojects {
+    /*tasks.withType(Compile).allTasks { Compile compile ->
+        compile.options.debug = true
+        compile.options.compilerArgs = ['-Xlint:all']
+    }*/
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation" << '-Xlint:all'
+    }
+}
+
+project.tasks.withType(Javadoc) {
+    if (JavaVersion.current().isJava8Compatible()) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
 mainClassName = "com.github.p4535992.database.home.TestMain"
-sourceCompatibility = 1.7
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
 
 //dependencies versions
 //project.ext.set(
@@ -24,6 +61,7 @@ sourceCompatibility = 1.7
             springFrameWorkVersion = '4.2.4.RELEASE'
     ]
 }*/
+ext.githubProjectName = 'database-basic'
 ext.slf4jVersion = '1.7.14'
 ext.springFrameWorkVersion = '4.2.4.RELEASE'
 ext.p4535992UtilityVersion = '1.6.8-SNAPSHOT'
@@ -110,6 +148,9 @@ task dist(type: Zip) {
         from configurations.runtime
     }
 }
+
+
+
 
 
 

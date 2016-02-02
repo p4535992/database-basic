@@ -77,8 +77,7 @@ public class DataSourceFactory {
     public static DataSource createDataSourceWithSpring(Class<?> driverClass,String url,String username,String password){
         DriverManagerDataSource driverManag = new DriverManagerDataSource();
         // driverManag.setDriverClassName(driver.getDriver());//"com.mysql.jdbc.Driver"
-        driverManag.setDriverClassName(driverClass.getCanonicalName());
-        SQLEnum.DBConnector dialectDB = SQLConverter.convertClassDriverToDBConnector(driverClass);
+        driverManag.setDriverClassName(SQLConverter.convertClassDriverToDBDriver(driverClass).getDriver());
         driverManag.setUrl(url); //"jdbc:mysql://localhost:3306/jdbctest"
         driverManag.setUsername(username);
         driverManag.setPassword(password);

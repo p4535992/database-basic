@@ -2,13 +2,20 @@ package com.github.p4535992.database.datasource.sql;
 
 import com.github.p4535992.util.string.StringUtilities;
 import org.apache.jena.datatypes.xsd.XSDDatatype;
+import org.jooq.SQLDialect;
+import org.jooq.tools.jdbc.JDBCUtils;
 
 import java.lang.reflect.Field;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.SQLException;
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.github.p4535992.database.datasource.sql.SQLEnum.DBDriver.MYSQL;
+import static com.github.p4535992.database.datasource.sql.SQLEnum.DBDriver.*;
+import static org.jooq.SQLDialect.*;
+import static org.jooq.SQLDialect.DEFAULT;
 
 /**
  * Created by 4535992 on 02/02/2016.
@@ -245,9 +252,133 @@ public class SQLConverter {
         return convertClassDriverToDBDriver(driverClass.getCanonicalName());
     }
 
+
+    public static SQLEnum.DBDriver convertURLToDbDriver(String url) {
+        return convertClassDriverToDBDriver(convertURLToCanonicalDriverClassName(url));
+    }
+
+    /**
+     * "Guess" the JDBC driver from a connection URL.
+     */
+    public static String convertURLToCanonicalDriverClassName(String url){
+        //JDBCUtils.driver(url)
+        switch (convertURLToSqlDialect(url).family()) {
+            case CUBRID:return "cubrid.jdbc.driver.CUBRIDDriver";
+            case DERBY: return "org.apache.derby.jdbc.ClientDriver";
+            case FIREBIRD:return "org.firebirdsql.jdbc.FBDriver";
+            case H2:return "org.h2.Driver";
+            case HSQLDB:return "org.hsqldb.jdbcDriver";
+            case MARIADB:return "org.mariadb.jdbc.Driver";
+            case MYSQL:return "com.mysql.jdbc.Driver";
+            case POSTGRES:return "org.postgresql.Driver";
+            case SQLITE:return "org.sqlite.JDBC";
+        }
+        logger.error("Can't convert the URL:"+url+" to a DriverClassNAme");
+        return "java.sql.Driver";
+    }
+
+    /**
+     * "Guess" the {@link SQLDialect} from a connection URL.
+     */
+    public static SQLDialect convertURLToSqlDialect(String url) {
+       // return JDBCUtils.dialect(url);
+        if (url == null) {
+            return SQLDialect.DEFAULT;
+        }
+        // The below list might not be accurate or complete. Feel free to
+        // contribute fixes related to new / different JDBC driver configurations
+        else if (url.startsWith("jdbc:cubrid:")) {
+            return SQLDialect.CUBRID;
+        }
+        else if (url.startsWith("jdbc:derby:")) {
+            return SQLDialect.DERBY;
+        }
+        else if (url.startsWith("jdbc:firebirdsql:")) {
+            return SQLDialect.FIREBIRD;
+        }
+        else if (url.startsWith("jdbc:h2:")) {
+            return SQLDialect.H2;
+        }
+        else if (url.startsWith("jdbc:hsqldb:")) {
+            return SQLDialect.HSQLDB;
+        }
+        else if (url.startsWith("jdbc:mariadb:")) {
+            return SQLDialect.MARIADB;
+        }
+        else if (url.startsWith("jdbc:mysql:")
+                || url.startsWith("jdbc:google:")) {
+            return SQLDialect.MYSQL;
+        }
+        else if (url.startsWith("jdbc:postgresql:")) {
+            return SQLDialect.POSTGRES;
+        }
+        else if (url.startsWith("jdbc:sqlite:")
+                || url.startsWith("jdbc:sqldroid:")) {
+            return SQLDialect.SQLITE;
+        }else {
+            logger.error("Can't convert the URL:" + url + " to a SqlDialect");
+            return SQLDialect.DEFAULT;
+        }
+    }
+
+    /**
+     * "Guess" the {@link SQLDialect} from a connection URL.
+     */
+    public static SQLDialect convertConnectionToSqlDialect(Connection connection) {
+       // return JDBCUtils.dialect(conn);
+        SQLDialect result = SQLDialect.DEFAULT;
+        if (connection != null) {
+            try {
+                DatabaseMetaData m = connection.getMetaData();
+                String url = m.getURL();
+                result = convertURLToSqlDialect(url);
+            }
+            catch (SQLException ignore) {}
+        }
+        if (result == SQLDialect.DEFAULT) {
+            // If the dialect cannot be guessed from the URL, take some other
+            // measures, e.g. by querying DatabaseMetaData.getDatabaseProductName()
+        }
+        logger.error("Can't convert the Connection to a SQLDialect");
+        return result;
+    }
+
+    public static SQLEnum.DBType convertSqlDialectToDbType(SQLDialect sqlDialect){
+        switch(sqlDialect){
+            case CUBRID: return SQLEnum.DBType.CUBRID;
+            case DERBY: return SQLEnum.DBType.DERBY;
+            case FIREBIRD: return SQLEnum.DBType.FIREBIRD;
+            case H2: return SQLEnum.DBType.H2;
+            case HSQLDB: return SQLEnum.DBType.HSQLDB;
+            case MARIADB: return SQLEnum.DBType.MARIADB;
+            case MYSQL: return SQLEnum.DBType.MYSQL;
+            case POSTGRES: return SQLEnum.DBType.POSTGRES;
+            case POSTGRES_9_3: return SQLEnum.DBType.POSTGRES;
+            case POSTGRES_9_4: return SQLEnum.DBType.POSTGRES;
+            case POSTGRES_9_5: return SQLEnum.DBType.POSTGRES;
+            case SQLITE: return SQLEnum.DBType.SQLITE;
+            default:{
+                logger.error("Can't convert the SqlDialect:"+sqlDialect.name()+" to a DBType");
+                return null;
+            }
+        }
+    }
+
+
     public static SQLEnum.DBDriver convertClassDriverToDBDriver(String canonicalNameDriverClass){
-        if(canonicalNameDriverClass.contains(MYSQL.getDriver())) return MYSQL;
-        else return null;
+        if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.MYSQL.getDriver())) return SQLEnum.DBDriver.MYSQL;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.CUBRID.getDriver())) return SQLEnum.DBDriver.CUBRID;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.DERBY.getDriver())) return SQLEnum.DBDriver.DERBY;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.FIREBIRD.getDriver())) return SQLEnum.DBDriver.FIREBIRD;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.H2.getDriver())) return SQLEnum.DBDriver.H2;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.HSQLDB.getDriver())) return SQLEnum.DBDriver.HSQLDB;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.MARIADB.getDriver())) return SQLEnum.DBDriver.MARIADB;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.POSTGRES.getDriver())) return SQLEnum.DBDriver.POSTGRES;
+        else if(canonicalNameDriverClass.contains(SQLEnum.DBDriver.SQLITE.getDriver())) return SQLEnum.DBDriver.SQLITE;
+        else {
+            logger.error("Can't convert the canonicalNameDriverClass:"+canonicalNameDriverClass+" to a DBType");
+            return null;
+        }
     }
 
     public static SQLEnum.DBConnector convertClassDriverToDBConnector(Class<?> driverClass){
@@ -257,8 +388,13 @@ public class SQLConverter {
     public static SQLEnum.DBConnector convertDBDriverToDbConnector(SQLEnum.DBDriver dbDriver){
         switch(dbDriver){
             case MYSQL: return SQLEnum.DBConnector.MYSQL;
-            default: return null;
+            default: {
+                logger.error("Can't convert the DBDriver:"+dbDriver.name()+" to a DBConnector");
+                return null;
+            }
         }
     }
+
+
 
 }

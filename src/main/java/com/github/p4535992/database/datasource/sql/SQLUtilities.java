@@ -380,6 +380,30 @@ public class SQLUtilities {
     }
 
     /**
+     * Method to get a Array of COlumns of The table.
+     * @param nameOfTable string name of the table.
+     * @return a Array Collection filled with the name of the columns of the table.
+     */
+    public static String[] getColumns(DataSource dataSource,String nameOfTable){
+        String query = "SELECT * FROM "+nameOfTable+" LIMIT 1";
+        String[] columns =  new String[]{};
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement p = connection.prepareStatement(query);
+            ResultSet rs = p.executeQuery();
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+            int numberOfColumns = rsMetaData.getColumnCount();
+            // get the column names; column indexes start from 1
+            for (int i = 1; i < numberOfColumns + 1; i++) {
+                columns[i] = rsMetaData.getColumnName(i);
+            }
+        }catch(SQLException e){
+            logger.error( e.getMessage(),e);
+        }
+        return columns;
+    }
+
+    /**
      * Method to get the List of all Tables on a Specific connection.
      * href:http://www.javaroots.com/2013/09/print-tables-details-in-schema-jdbc.html.
      * @param connection the SQL Connection.

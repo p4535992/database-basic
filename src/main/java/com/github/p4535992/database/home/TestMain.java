@@ -1,8 +1,9 @@
 package com.github.p4535992.database.home;
 
 import com.github.p4535992.database.datasource.DataSourceFactory;
-import com.github.p4535992.database.datasource.datastore.database.Database;
-import com.github.p4535992.database.datasource.datastore.database.database.MySqlDatabase;
+import com.github.p4535992.database.datasource.database.MyDatabase;
+import com.github.p4535992.database.datasource.database.MySqlDatabase;
+import com.github.p4535992.database.datasource.sql.query.MyQuery;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -21,7 +22,12 @@ public class TestMain {
         //test1 jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true
         //test2 jdbc:postgresql://host:port/database?user=userName&password=pass
 
-        Database<MySqlDatabase> database = new MySqlDatabase("lovalhost","3306","siimobility","siimobility","geodb");
+        MyDatabase database = new MySqlDatabase("lovalhost","3306","siimobility","siimobility","geodb");
+
+        MyQuery myQuery = database.getQuery();
+
+
+        //MyDataSource dataSource = (MyDataSource) new MySqlDatabase("lovalhost","3306","siimobility","siimobility","geodb");
 
         //WORK
         //Connection conn = getMySqlConnection("localhost","3306","geodb","siimobility","siimobility");
