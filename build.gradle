@@ -4,13 +4,27 @@ plugins {
 }
 
 group 'com.github.p4535992'
-version '1.6.8-SNAPSHOT'
+version '1.6.8'
 
 apply plugin: 'groovy'
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'maven-publish'
 /*https://github.com/nebula-plugins/gradle-extra-configurations-plugin*/
 apply plugin: 'nebula.optional-base'
+
+publishing {
+    publications {
+        //myPublicationName(MavenPublication) {
+        maven(MavenPublication) {
+            groupId 'com.github.p4535992'
+            artifactId 'database-basic'
+            version '1.6.8'
+            from components.java
+        }
+    }
+}
+
 
 compileJava {
     // This only works when forking and passing 'javac' as an executable
