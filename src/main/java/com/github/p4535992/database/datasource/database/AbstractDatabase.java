@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.*;
 import com.github.p4535992.database.datasource.sql.query.MyQuery;
-import com.github.p4535992.database.datasource.sql.query.QueryImpl;
 import com.github.p4535992.database.datasource.sql.query.SQLQuery;
 import com.github.p4535992.util.bean.BeansKit;
 import com.github.p4535992.util.collection.ArrayUtilities;
@@ -844,13 +843,13 @@ public abstract class AbstractDatabase<T> implements MyDatabase {
     @SuppressWarnings("rawtypes")
     @Override
     public MyQuery getQuery(Class<?> classObject) {
-        return new QueryImpl();
+        return null;
     }
 
     @SuppressWarnings("rawtypes")
     @Override
     public MyQuery getQuery() {
-        return new QueryImpl();
+        return null;
     }
 
 

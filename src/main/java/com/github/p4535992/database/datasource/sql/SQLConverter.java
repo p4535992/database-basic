@@ -252,6 +252,16 @@ public class SQLConverter {
         return toDBDialect(driverClass.getCanonicalName());
     }
 
+   /* public static SQLEnum.DBDialect toDBDialect(Class<?> driverClass){
+        switch(toDBDialect(driverClass.getCanonicalName())){
+            case MYSQL: return SQLEnum.DBDialect.MYSQL;
+            default: {
+                logger.error("Can't convert the DBDriver:"+driverClass.getCanonicalName()+" to a DBConnector");
+                return SQLEnum.DBDialect.NULL;
+            }
+        }
+    }*/
+
     public static SQLEnum.DBDialect toDBDialect(URL url) {
         return toDBDialect(toDriverClassName(url.toString()));
     }
@@ -434,15 +444,7 @@ public class SQLConverter {
         }
     }
 
-    public static SQLEnum.DBDialect toDBConnector(Class<?> driverClass){
-        switch(toDBDialect(driverClass.getCanonicalName())){
-            case MYSQL: return SQLEnum.DBDialect.MYSQL;
-            default: {
-                logger.error("Can't convert the DBDriver:"+driverClass.getCanonicalName()+" to a DBConnector");
-                return SQLEnum.DBDialect.NULL;
-            }
-        }
-    }
+
 
 
 

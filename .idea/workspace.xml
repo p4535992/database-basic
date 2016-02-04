@@ -2,162 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ed6a847-5e5d-4865-baeb-dc85f091be7a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__c3p0_c3p0_0_9_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_adobe_xmp_xmpcore_5_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_beust_jcommander_1_35.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_drewnoakes_metadata_extractor_2_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_junrar_junrar_0_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_protobuf_protobuf_java_2_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_googlecode_json_simple_json_simple_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_googlecode_juniversalchardet_juniversalchardet_1_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_googlecode_mp4parser_isoparser_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_h2database_h2_1_4_191.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_healthmarketscience_jackcess_jackcess_2_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_healthmarketscience_jackcess_jackcess_encrypt_2_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_pff_java_libpst_0_8_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_lang_commons_lang_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_logging_commons_logging_api_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_l3s_boilerpipe_boilerpipe_1_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__edu_ucar_cdm_4_5_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__edu_ucar_grib_4_5_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__edu_ucar_httpservices_4_5_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__edu_ucar_jj2000_5_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__edu_ucar_netcdf4_4_5_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__edu_ucar_udunits_4_5_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_measure_jsr_275_0_9_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_4_0_0_b01.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_ws_rs_javax_ws_rs_api_2_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jdom_jdom_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_java_dev_jna_jna_4_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_jcip_jcip_annotations_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_ehcache_ehcache_core_2_6_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_jwordnet_jwnl_1_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sourceforge_jmatio_jmatio_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_compress_1_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_exec_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_vfs2_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_cxf_cxf_core_3_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_cxf_cxf_rt_frontend_jaxrs_3_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_cxf_cxf_rt_rs_client_3_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_cxf_cxf_rt_transports_http_3_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_james_apache_mime4j_core_0_7_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_james_apache_mime4j_dom_0_7_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_maven_scm_maven_scm_api_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_maven_scm_maven_scm_provider_svn_commons_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_maven_scm_maven_scm_provider_svnexe_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_opennlp_opennlp_maxent_3_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_opennlp_opennlp_tools_1_5_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_pdfbox_fontbox_1_8_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_pdfbox_jempbox_1_8_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_pdfbox_pdfbox_1_8_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_3_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_ooxml_3_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_ooxml_schemas_3_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_scratchpad_3_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_sis_core_sis_metadata_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_sis_core_sis_referencing_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_sis_core_sis_utility_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_sis_storage_sis_netcdf_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_sis_storage_sis_storage_0_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tika_tika_app_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tika_tika_batch_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tika_tika_core_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tika_tika_parsers_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tika_tika_serialization_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tika_tika_xmp_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_ws_xmlschema_xmlschema_core_2_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlbeans_xmlbeans_2_6_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_aspectj_aspectjrt_1_8_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcmail_jdk15on_1_52.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcpkix_jdk15on_1_52.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_bouncycastle_bcprov_jdk15on_1_52.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_plexus_plexus_utils_1_5_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_woodstox_stax2_api_3_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codehaus_woodstox_woodstox_core_asl_4_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_codelibs_jhighlight_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_gagravarr_vorbis_java_core_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_gagravarr_vorbis_java_tika_0_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hsqldb_hsqldb_2_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_itadaki_bzip2_0_9_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jdom_jdom2_2_0_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opengis_geoapi_3_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_ow2_asm_asm_5_0_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_quartz_scheduler_quartz_2_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_slf4j_slf4j_log4j12_1_7_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_test_4_2_4_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_webmvc_4_2_4_RELEASE.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_tukaani_xz_1_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__regexp_regexp_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__rome_rome_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/database-basic.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceIntializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/PostgresDatabase.java.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/SqlServerDatabase.java.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/config/SpringRootConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/config/SpringWebConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/config/db/DerbyDataSource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/config/db/H2DataSource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/config/db/HsqlDataSource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/controller/WelcomeController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/modelmvc/User.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/modelmvc/dao/UserDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/modelmvc/dao/UserDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/servlet/MyWebInitializer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_uniVocity_univocity_parsers__SNAPSHOT.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__net_sf_ehcache_ehcache_core_2_4_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_3_10_FINAL.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_ooxml_3_10_FINAL.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_poi_poi_ooxml_schemas_3_10_FINAL.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/databaseBasic.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/MyDataSource.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/cfg.rar" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/jdbcTemplate/JdbcTemplateUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/spring/jdbcTemplate/JdbcTemplateUtilities.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/Hibernate4Kit.java.txt" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old/Hibernate4Kit.java.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/HibernateCRUD.java.txt" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old/HibernateCRUD.java.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/HibernateSupport.java.txt" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old/HibernateSupport.java.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/Test_Hibernate_Spring.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/Test_Hibernate_Spring.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/dao/IGeoDocumentHibernateDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/impl/IGeoDocumentHibernateDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/dao/generic/IGenericHibernateDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/IGenericHibernateDao.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/impl/generic/GenericHibernateDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/GenericHibernateDaoImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old_hibernate.zip" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old/old_hibernate.zip" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distributions/database-basic-1.6.8-SNAPSHOT.tar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/distributions/database-basic-1.6.8-SNAPSHOT.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/QueryImpl.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java.txt" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old/cfg.rar" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/old/cfg.rar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.5/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/scripts/database-basic" afterPath="$PROJECT_DIR$/build/scripts/database-basic" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/scripts/database-basic.bat" afterPath="$PROJECT_DIR$/build/scripts/database-basic.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/DatabaseFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/DatabaseFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/HsqlDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/HsqlDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MyDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MyDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MySqlDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MySqlDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/pooling/MiniConnectionPoolManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/pooling/MiniConnectionPoolManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/jooq/JOOQUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/jooq/JOOQUtilities.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLSupport.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLSupport.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtilities.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtilities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/AbstractQuery.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/AbstractQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/QueryImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/QueryImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/SQLQuery.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/SQLQuery.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/impl/GeoDocumentHibernateDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/impl/GeoDocumentHibernateDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/TestMain.java" afterPath="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/TestMain.java" />
     </list>
     <ignored path="database-basic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -219,40 +79,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/TestMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractDatabase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-              <folding>
-                <element signature="e#1094#1124#0" expanded="true" />
-                <element signature="e#1926#1956#0" expanded="true" />
-                <marker date="1454579659233" expanded="true" signature="7842:7863" placeholder="DROP TABLE I... " />
-                <marker date="1454579659233" expanded="true" signature="8651:8761" placeholder="SELECT count... missingValue" />
-                <marker date="1454579659233" expanded="true" signature="9776:9797" placeholder="select count... missingValue" />
-                <marker date="1454579659233" expanded="true" signature="10637:10699" placeholder="DELETE FROM " />
-                <marker date="1454579659233" expanded="true" signature="16192:16270" placeholder="UPDATE missi... " />
-                <marker date="1454579659233" expanded="true" signature="38111:38148" placeholder="SELECT * FRO... missingValue" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MySqlDatabase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MySqlDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.0">
+              <caret line="56" column="52" selection-start-line="50" selection-start-column="10" selection-end-line="56" selection-end-column="52" />
               <folding>
                 <element signature="e#3504#3505#0" expanded="true" />
                 <element signature="e#3558#3559#0" expanded="true" />
@@ -271,50 +102,78 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/DatabaseFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-              <folding>
-                <element signature="e#266#295#0" expanded="true" />
-                <element signature="e#1043#1072#0" expanded="true" />
-                <element signature="e#1496#1525#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="137" column="23" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DataSourceFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="60" selection-start-line="92" selection-start-column="60" selection-end-line="92" selection-end-column="60" />
+              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLUtilities.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtilities.java">
+      <file leaf-file-name="SQLEnum.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="835" column="9" selection-start-line="835" selection-start-column="9" selection-end-line="835" selection-end-column="9" />
+              <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OracleXEDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JOOQUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/jooq/JOOQUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
               <folding>
-                <marker date="1454581056163" expanded="true" signature="15677:15691" placeholder="Select * FRO... missingValue" />
-                <marker date="1454581056163" expanded="true" signature="16368:16405" placeholder="SELECT * FRO... missingValue" />
-                <marker date="1454581056163" expanded="true" signature="28561:28575" placeholder="SELECT * FRO... missingValue" />
+                <element signature="e#1736#1737#0" expanded="true" />
+                <element signature="e#1789#1790#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.9728395">
+              <caret line="80" column="44" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractQuery.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/AbstractQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+              <folding>
+                <element signature="e#2477#2507#0" expanded="true" />
+                <marker date="1454579413261" expanded="true" signature="9124:9161" placeholder="SELECT * FRO... missingValue" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyQuery.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/MyQuery.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -323,7 +182,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="297" column="36" selection-start-line="297" selection-start-column="36" selection-end-line="297" selection-end-column="36" />
+              <caret line="261" column="9" selection-start-line="261" selection-start-column="9" selection-end-line="261" selection-end-column="9" />
               <folding>
                 <element signature="method#toJdbcTypeName#0;class#SQLConverter#0" expanded="false" />
                 <element signature="method#toSQLTypes#0;class#SQLConverter#0" expanded="false" />
@@ -332,17 +191,29 @@
                 <element signature="method#toStringValue#0;class#SQLConverter#0" expanded="false" />
                 <element signature="method#toNameID#1;class#SQLConverter#0" expanded="false" />
                 <element signature="method#toXDDTypes#0;class#SQLConverter#0" expanded="false" />
+                <element signature="e#11690#11691#0" expanded="true" />
+                <element signature="e#11759#11760#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLEnum.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java">
+      <file leaf-file-name="AbstractDatabase.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5037037">
-              <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="851" column="20" selection-start-line="851" selection-start-column="20" selection-end-line="851" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#39079#39080#0" expanded="true" />
+                <element signature="e#39106#39107#0" expanded="true" />
+                <marker date="1454601512189" expanded="true" signature="7774:7795" placeholder="DROP TABLE I... " />
+                <marker date="1454601512189" expanded="true" signature="8583:8693" placeholder="SELECT count... missingValue" />
+                <marker date="1454601512189" expanded="true" signature="9708:9729" placeholder="select count... missingValue" />
+                <marker date="1454601512189" expanded="true" signature="10569:10631" placeholder="DELETE FROM " />
+                <marker date="1454601512189" expanded="true" signature="16124:16202" placeholder="UPDATE missi... " />
+                <marker date="1454601512189" expanded="true" signature="38043:38080" placeholder="SELECT * FRO... missingValue" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1234,8 +1105,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/SqlServerDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/impl/generic/GenericHibernateDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/hibernate/GenericHibernateDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/spring/embedded/DatabaseEmbedded.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/model/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/model/dao/UserDaoImpl.java" />
@@ -1252,17 +1121,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/mvc/servlet/MyWebInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/AbstractQuery.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/spring/jdbcTemplate/JdbcTemplateUtilities.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MyDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/HsqlDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/DatabaseFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/TestMain.java" />
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtilities.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MySqlDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -2079,6 +1950,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="jooq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database-basic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datasource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="database" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2663,16 +2568,16 @@
       <workItem from="1454418343723" duration="16497000" />
       <workItem from="1454500221404" duration="17517000" />
       <workItem from="1454571767045" duration="5688000" />
-      <workItem from="1454577509421" duration="5845000" />
+      <workItem from="1454577509421" duration="10334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93881000" />
+    <option name="totallyTimeSpent" value="98370000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1364" height="744" extended-state="1" />
-    <editor active="true" />
+    <frame x="-7" y="0" width="1364" height="744" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2684,7 +2589,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25982907" sideWeight="0.4969325" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25982907" sideWeight="0.4969325" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23773006" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2842,14 +2747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/MyQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2880,17 +2777,6 @@
         <state vertical-scroll-proportion="0.3626571">
           <caret line="1498" column="40" selection-start-line="1498" selection-start-column="40" selection-end-line="1498" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/QueryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="20" />
-          <folding>
-            <element signature="e#833#834#0" expanded="false" />
-            <element signature="e#860#861#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2951,14 +2837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="32" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3079,18 +2957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/AbstractQuery.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <element signature="e#2477#2507#0" expanded="true" />
-            <element signature="e#6041#6071#0" expanded="true" />
-            <marker date="1454579413261" expanded="true" signature="9124:9161" placeholder="SELECT * FRO... missingValue" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/spring/jdbcTemplate/JdbcTemplateUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1034483">
@@ -3139,17 +3005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/jooq/JOOQUtilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
-          <folding>
-            <element signature="e#1736#1737#0" expanded="false" />
-            <element signature="e#1789#1790#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MyDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3186,14 +3041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="137" column="23" selection-start-line="137" selection-start-column="23" selection-end-line="137" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3211,9 +3058,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
           <folding>
-            <element signature="e#266#295#0" expanded="true" />
-            <element signature="e#1043#1072#0" expanded="true" />
-            <element signature="e#1496#1525#0" expanded="true" />
+            <element signature="e#266#295#0" expanded="false" />
+            <element signature="e#1043#1072#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3226,22 +3072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="297" column="36" selection-start-line="297" selection-start-column="36" selection-end-line="297" selection-end-column="36" />
-          <folding>
-            <element signature="method#toJdbcTypeName#0;class#SQLConverter#0" expanded="false" />
-            <element signature="method#toSQLTypes#0;class#SQLConverter#0" expanded="false" />
-            <element signature="method#toClassTypes#0;class#SQLConverter#0" expanded="false" />
-            <element signature="method#toSQLTypes#1;class#SQLConverter#0" expanded="false" />
-            <element signature="method#toStringValue#0;class#SQLConverter#0" expanded="false" />
-            <element signature="method#toNameID#1;class#SQLConverter#0" expanded="false" />
-            <element signature="method#toXDDTypes#0;class#SQLConverter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.38/b83cac8c938dfb9b7a8e191e2d482be88eb8280c/mysql-connector-java-5.1.38-sources.jar!/com/mysql/fabric/jdbc/FabricMySQLDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3250,27 +3080,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/TestMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="e#1094#1124#0" expanded="true" />
-            <element signature="e#1926#1956#0" expanded="true" />
-            <marker date="1454579659233" expanded="true" signature="7842:7863" placeholder="DROP TABLE I... " />
-            <marker date="1454579659233" expanded="true" signature="8651:8761" placeholder="SELECT count... missingValue" />
-            <marker date="1454579659233" expanded="true" signature="9776:9797" placeholder="select count... missingValue" />
-            <marker date="1454579659233" expanded="true" signature="10637:10699" placeholder="DELETE FROM " />
-            <marker date="1454579659233" expanded="true" signature="16192:16270" placeholder="UPDATE missi... " />
-            <marker date="1454579659233" expanded="true" signature="38111:38148" placeholder="SELECT * FRO... missingValue" />
-          </folding>
+          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/MySqlDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.0">
+          <caret line="56" column="52" selection-start-line="50" selection-start-column="10" selection-end-line="56" selection-end-column="52" />
           <folding>
             <element signature="e#3504#3505#0" expanded="true" />
             <element signature="e#3558#3559#0" expanded="true" />
@@ -3288,26 +3117,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/home/TestMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="62" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/DataSourceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="60" selection-start-line="92" selection-start-column="60" selection-end-line="92" selection-end-column="60" />
+          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLEnum.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/OracleXEDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5037037">
-          <caret line="94" column="9" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/jooq/JOOQUtilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+          <folding>
+            <element signature="e#1736#1737#0" expanded="true" />
+            <element signature="e#1789#1790#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/MyQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/query/AbstractQuery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+          <folding>
+            <element signature="e#2477#2507#0" expanded="true" />
+            <marker date="1454579413261" expanded="true" signature="9124:9161" placeholder="SELECT * FRO... missingValue" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/sql/SQLConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="261" column="9" selection-start-line="261" selection-start-column="9" selection-end-line="261" selection-end-column="9" />
+          <folding>
+            <element signature="method#toJdbcTypeName#0;class#SQLConverter#0" expanded="false" />
+            <element signature="method#toSQLTypes#0;class#SQLConverter#0" expanded="false" />
+            <element signature="method#toClassTypes#0;class#SQLConverter#0" expanded="false" />
+            <element signature="method#toSQLTypes#1;class#SQLConverter#0" expanded="false" />
+            <element signature="method#toStringValue#0;class#SQLConverter#0" expanded="false" />
+            <element signature="method#toNameID#1;class#SQLConverter#0" expanded="false" />
+            <element signature="method#toXDDTypes#0;class#SQLConverter#0" expanded="false" />
+            <element signature="e#11690#11691#0" expanded="true" />
+            <element signature="e#11759#11760#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/github/p4535992/database/datasource/database/AbstractDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="851" column="20" selection-start-line="851" selection-start-column="20" selection-end-line="851" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#39079#39080#0" expanded="true" />
+            <element signature="e#39106#39107#0" expanded="true" />
+            <marker date="1454601512189" expanded="true" signature="7774:7795" placeholder="DROP TABLE I... " />
+            <marker date="1454601512189" expanded="true" signature="8583:8693" placeholder="SELECT count... missingValue" />
+            <marker date="1454601512189" expanded="true" signature="9708:9729" placeholder="select count... missingValue" />
+            <marker date="1454601512189" expanded="true" signature="10569:10631" placeholder="DELETE FROM " />
+            <marker date="1454601512189" expanded="true" signature="16124:16202" placeholder="UPDATE missi... " />
+            <marker date="1454601512189" expanded="true" signature="38043:38080" placeholder="SELECT * FRO... missingValue" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9728395">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="34" selection-end-line="80" selection-end-column="44" />
           <folding />
         </state>
       </provider>
