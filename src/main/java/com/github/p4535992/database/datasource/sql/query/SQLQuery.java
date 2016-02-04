@@ -452,15 +452,15 @@ public class SQLQuery {
 //   public Object[] prepareValues(Object[] values,int[] types){
 //        for(int i = 0; i < values.length; i++){
 //            if(values[i]== null){
-//                if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(Integer.class.getName())){
+//                if(SQLHelper.toClassTypes(types[i]).getName().equals(Integer.class.getName())){
 //                    values[i] = "NULL";
 //                    types[i] = Types.NULL;
 //                }
-//                else if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(int.class.getName())){
+//                else if(SQLHelper.toClassTypes(types[i]).getName().equals(int.class.getName())){
 //                    values[i] = "NULL" ;
 //                    types[i] = Types.NULL;
 //                }
-//                else if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(String.class.getName())){
+//                else if(SQLHelper.toClassTypes(types[i]).getName().equals(String.class.getName())){
 //                    values[i] = "NULL";
 //                    types[i] = Types.NULL;
 //                }
@@ -469,7 +469,7 @@ public class SQLQuery {
 //                    types[i] = Types.NULL;
 //                }
 //            }else{
-//                if(SQLHelper.convertSQLTypes2JavaClass(types[i]).getName().equals(String.class.getName())){
+//                if(SQLHelper.toClassTypes(types[i]).getName().equals(String.class.getName())){
 //                    values[i] = values[i].toString();
 //                    types[i] = Types.VARCHAR;
 //                }

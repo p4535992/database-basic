@@ -214,7 +214,7 @@ public class MiniConnectionPoolManager {
 
         // Version for H2:
         //org.h2.jdbcx.JdbcDataSource dataSource = new org.h2.jdbcx.JdbcDataSource();
-        //dataSource.setURL ("jdbc:h2:file:c:/temp/temp_TestMiniConnectionPoolManagerDB;DB_CLOSE_DELAY=-1");
+        //dataSource.prepareURL ("jdbc:h2:file:c:/temp/temp_TestMiniConnectionPoolManagerDB;DB_CLOSE_DELAY=-1");
 
         // Version for Apache Derby:
        /*

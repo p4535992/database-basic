@@ -280,8 +280,8 @@ public class SQLSupport<T>{
             }else {
                 DataType dataType = new DefaultDataType(
                         sqlDialect,
-                        SQLHelper.convertSQLTypes2JavaClass(types[i]),
-                        SQLHelper.convertSQLTypes2String(types[i])
+                        SQLHelper.toClassTypes(types[i]),
+                        SQLHelper.toStringValue(types[i])
                 );
                 fv[i] = DSL.val(values[i], dataType);
             }

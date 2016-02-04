@@ -1,25 +1,11 @@
 package com.github.p4535992.database.datasource.sql.query;
 
 import com.github.p4535992.database.datasource.database.AbstractDatabase;
-import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
-import com.github.p4535992.database.datasource.sql.SQLSupport;
-import com.github.p4535992.database.datasource.sql.jdbcTemplate.JdbcTemplateUtilities;
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.reflection.ReflectionUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+import com.github.p4535992.database.datasource.spring.jdbcTemplate.JdbcTemplateUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.jooq.Condition;
-import org.springframework.jdbc.BadSqlGrammarException;
-import org.springframework.jdbc.UncategorizedSQLException;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Column;
-import java.lang.reflect.Method;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.sql.*;
 import java.util.*;
 
@@ -79,7 +65,9 @@ public abstract class AbstractQuery<T> extends AbstractDatabase<T> implements My
 
     @Transactional
     @Override
+    @SuppressWarnings("unchecked")
     public T find(final Object id) {
+        //noinspection unchecked
         return (T) JdbcTemplateUtilities.find(entityManager,id,cl);
     }
 

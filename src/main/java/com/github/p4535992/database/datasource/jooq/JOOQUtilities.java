@@ -88,7 +88,7 @@ public class JOOQUtilities {
      * @return the SQLDialect of JOOQ.
      */
     public static SQLDialect convertStringToSQLDialectJOOQ(String sqlDialect) {
-        sqlDialect = SQLConverter.convertDialectDatabaseToTypeNameId(sqlDialect);
+        sqlDialect = SQLConverter.toNameID(sqlDialect);
         switch (sqlDialect.toLowerCase()) {
             case "cubrid":return SQLDialect.CUBRID;
             case "derby": return SQLDialect.DERBY;
@@ -535,8 +535,8 @@ public class JOOQUtilities {
     public static DataType createDataType(int sqlTypes){
         return new DefaultDataType(
                 sqlDialect,
-                SQLConverter.convertSQLTypes2JavaClass(sqlTypes),
-                SQLConverter.convertSQLTypes2String(sqlTypes)
+                SQLConverter.toClassTypes(sqlTypes),
+                SQLConverter.toStringValue(sqlTypes)
         );
     }
 
@@ -573,8 +573,8 @@ public class JOOQUtilities {
     public static DataType createDataType(int sqlTypes, SQLDialect sqlDialect){
         return new DefaultDataType(
                 sqlDialect,
-                SQLConverter.convertSQLTypes2JavaClass(sqlTypes),
-                SQLConverter.convertSQLTypes2String(sqlTypes)
+                SQLConverter.toClassTypes(sqlTypes),
+                SQLConverter.toStringValue(sqlTypes)
         );
     }
 

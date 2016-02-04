@@ -3,7 +3,6 @@ package com.github.p4535992.database.home;
 import com.github.p4535992.database.datasource.DataSourceFactory;
 import com.github.p4535992.database.datasource.database.MyDatabase;
 import com.github.p4535992.database.datasource.database.MySqlDatabase;
-import com.github.p4535992.database.datasource.sql.query.MyQuery;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -21,11 +20,9 @@ public class TestMain {
 
         //test1 jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true
         //test2 jdbc:postgresql://host:port/database?user=userName&password=pass
+        //LogBackUtil.console(Paths.get("logback.xml"));
 
-        MyDatabase database = new MySqlDatabase("lovalhost","3306","siimobility","siimobility","geodb");
-
-        MyQuery myQuery = database.getQuery();
-
+        MyDatabase database = new MySqlDatabase("localhost", "3306", "siimobility", "siimobility", "geodb");
 
         //MyDataSource dataSource = (MyDataSource) new MySqlDatabase("lovalhost","3306","siimobility","siimobility","geodb");
 
@@ -43,7 +40,7 @@ public class TestMain {
                 "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
                 "com.mysql.jdbc.Driver","siimobility","siimobility");
 
-        Map map = (Map) DataSourceFactory.getMapOfLocalContext();
+        Map<String,DataSource> map =  DataSourceFactory.getDataSourceAlreadySetted();
 
         //executeSQL(LogBackUtil.getMySQLScript(),conn);
         //WORK

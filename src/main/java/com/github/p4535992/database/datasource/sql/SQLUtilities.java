@@ -1,5 +1,6 @@
 package com.github.p4535992.database.datasource.sql;
 
+import com.github.p4535992.database.datasource.database.MySqlDatabase;
 import com.github.p4535992.util.collection.ArrayUtilities;
 import com.github.p4535992.util.collection.ListUtilities;
 import com.github.p4535992.util.database.jooq.JOOQUtilities;
@@ -88,8 +89,6 @@ public class SQLUtilities {
         return result;
     }
 
-
-
     /**
      * Method to get a Connection from a List to possible choice.
      * @param dialectDB the String of the dialectDb.
@@ -100,8 +99,8 @@ public class SQLUtilities {
      * @param password string password.
      * @return the connection.
      */
-    public static Connection chooseAndGetConnection(String dialectDB,
-                                                    String host, String port, String database, String username, String password){
+    public static Connection chooseAndGetConnection(
+            String dialectDB,String host, String port, String database, String username, String password){
         if(StringUtilities.isNullOrEmpty(username) || StringUtilities.isNullOrEmpty(password)){
             username = "root";
             password = "";
@@ -118,7 +117,8 @@ public class SQLUtilities {
             case "h2": return null;
             case "hsqldb": return null;
             case "mariadb": return null;
-            case "mysql": return getMySqlConnection(host,port,database,username,password);
+            case "mysql":
+                return new MySqlDatabase(host,port,database,username,password).getConnection();
             case "postgres": return null;
             case "postgres93": return null;
             case "postgres94": return null;
@@ -136,11 +136,11 @@ public class SQLUtilities {
      * @param password string password.
      * @return the connection.
      */
-    public static Connection getHSQLDBConnection(String host, String port, String database, String username, String password) {
+    /*public static Connection getHSQLDBConnection(String host, String port, String database, String username, String password) {
         // The newInstance() call is a work around for some broken Java implementations
         try {
             invokeClassDriverForDbType(SQLEnum.DBType.HSQLDB);
-            String url = SQLEnum.DBConnector.HSQLDB.getConnector() + host;
+            String url = SQLEnum.DBConnector.HSQLDB.getJDBCConnector() + host;
             if (port != null && StringUtilities.isNumeric(port)) {
                 url += ":" + port; //jdbc:hsqldb:data/database
             }
@@ -156,7 +156,7 @@ public class SQLUtilities {
             logger.error("The URL is not correct:" + e.getMessage(), e);
         }
         return conn;
-    }
+    }*/
 
     /**
      * Method to get a MySQL connection.
@@ -167,12 +167,12 @@ public class SQLUtilities {
      * @param password string password.
      * @return the connection.
      */
-    public static Connection getMySqlConnection(
+    /*public static Connection getMySqlConnection(
             String host, String port, String database, String username, String password) {
         // The newInstance() call is a work around for some broken Java implementations
         try {
             invokeClassDriverForDbType(SQLEnum.DBType.MYSQL);
-            String url = SQLEnum.DBConnector.MYSQL.getConnector() + host;
+            String url = SQLEnum.DBConnector.MYSQL.getJDBCConnector() + host;
             if (port != null && StringUtilities.isNumeric(port)) {
                 url += ":" + port;
             }
@@ -193,7 +193,7 @@ public class SQLUtilities {
             logger.error("Unable to load driver class!:"+e.getMessage(),e);
         }
         return conn;
-    }
+    }*/
 
     /**
      * Method to get a MySQL connection.
@@ -203,10 +203,10 @@ public class SQLUtilities {
      * @param password string password.
      * @return the connection.
      */
-    public static Connection getMySqlConnection(
+  /*  public static Connection getMySqlConnection(
             String host, String database, String username, String password) {
         return getMySqlConnection(host,null,database,username,password);
-    }
+    }*/
 
     /**
      * Method to get a MySQL connection.
@@ -215,14 +215,14 @@ public class SQLUtilities {
      * @param password string password.
      * @return the connection.
      */
-    public static Connection getMySqlConnection(String hostAndDatabase, String username, String password) {
+   /* public static Connection getMySqlConnection(String hostAndDatabase, String username, String password) {
         String[] split = hostAndDatabase.split("/");
         if(hostAndDatabase.startsWith("/")) hostAndDatabase = split[1];
         else hostAndDatabase = split[0];
         return getMySqlConnection(hostAndDatabase,null,split[split.length-1],username,password);
-    }
+    }*/
 
-    public static Connection getMySqlConnection(String fullUrl) {
+    /*public static Connection getMySqlConnection(String fullUrl) {
         //e.g. "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true&user=siimobility&password=siimobility"
         try {
             invokeClassDriverForDbType(SQLEnum.DBType.MYSQL);
@@ -242,7 +242,7 @@ public class SQLUtilities {
             logger.error("Unable to load driver class!:"+e.getMessage(),e);
         }
         return conn;
-    }
+    }*/
 
     /**
      * Method to get a Oracle connection.
@@ -255,9 +255,9 @@ public class SQLUtilities {
      */
     public static Connection getOracleConnection(String host, String port, String database, String username, String password){
         try {
-            invokeClassDriverForDbType(SQLEnum.DBType.ORACLE);
+            invokeClassDriverForDbType(SQLEnum.DBDialect.ORACLE);
             //String url = "jdbc:oracle:thin:@localhost:1521:"+database;// load Oracle driver
-            String url = SQLEnum.DBConnector.ORACLE.getConnector() + host;
+            String url = SQLEnum.DBDialect.ORACLE.getJDBCConnector() + host;
             if (port != null && StringUtilities.isNumeric(port)) {
                 url += ":" + port;
             }
@@ -271,27 +271,7 @@ public class SQLUtilities {
         return conn;
     }
 
-   /* private static Connection getMySqlConnection2(String fullUrl){
-        //jdbc:mysql://localhost:3306/geodb?user=minty&password=greatsqldb&noDatetimeStringSync=true
-        //localhost:3306/geodb?user=minty&password=greatsqldb&noDatetimeStringSync=true
-        if(fullUrl.toLowerCase().contains("jdbc:mysql://")) fullUrl = fullUrl.replace("jdbc:mysql://","");
-        String[] split = fullUrl.split("\\?");
-        String hostAndDatabase = split[0];//localhost:3306/geodb
-        Pattern pat = Pattern.compile("(\\&|\\?)?(user|username)(\\=)(.*?)(\\&|\\?)?", Pattern.CASE_INSENSITIVE);
-        String username = StringUtilities.findWithRegex(fullUrl, pat);
-        if(Objects.equals(username, "?")) username = "root";
-        pat = Pattern.compile("(\\&|\\?)?(pass|password)(\\=)(.*?)(\\&|\\?)?", Pattern.CASE_INSENSITIVE);
-        String password = StringUtilities.findWithRegex(fullUrl, pat);
-        if(Objects.equals(password, "?")) password ="";
-        split = hostAndDatabase.split("/");
-        String database = split[split.length-1];
-        hostAndDatabase = hostAndDatabase.replace(database,"");
-        pat = Pattern.compile("([0-9])+", Pattern.CASE_INSENSITIVE);
-        String port = StringUtilities.findWithRegex(hostAndDatabase, pat);
-        if(Objects.equals(port, "?")) port = null;
-        else  hostAndDatabase = hostAndDatabase.replace(port, "").replace(":","").replace("/","");
-        return getMySqlConnection(hostAndDatabase,port,database,username,password);
-    }*/
+
 
     /**
      * Method to connect to a h2  database.
@@ -306,14 +286,14 @@ public class SQLUtilities {
     public static Connection getH2RemoteConnection(
             String host, String port, String database, String username, String password) {
         try {
-            invokeClassDriverForDbType(SQLEnum.DBType.H2);
+            invokeClassDriverForDbType(SQLEnum.DBDialect.H2);
             /*
             jdbc:h2:tcp://<server>[:<port>]/[<path>]<databaseName>
             jdbc:h2:tcp://localhost/~/test
             jdbc:h2:tcp://dbserv:8084/~/sample
             jdbc:h2:tcp://localhost/mem:test
             */
-            String url = SQLEnum.DBConnector.H2.getConnector() + host;
+            String url = SQLEnum.DBDialect.H2.getJDBCConnector() + host;
             if (port != null && StringUtilities.isNumeric(port)) {
                 url += ":" + port;
             }
@@ -758,7 +738,7 @@ public class SQLUtilities {
                         types[i] = SQLConverter.convertStringToSQLTypes(values[i]);
                     }
                     insertQuery = JOOQUtilities.insert(nameTable, columns,values,types);
-                    com.github.p4535992.util.database.sql.SQLUtilities.executeSQL(insertQuery,connection);
+                    SQLUtilities.executeSQL(insertQuery,connection);
                 }
             }
             logger.info("Data CSV File Successfully Uploaded");
@@ -776,20 +756,6 @@ public class SQLUtilities {
      */
     public static String getHostFromUrl(String url) {
         try {
-            /*String regexForHostAndPort = "[.\\w]+:\\d+";
-            Pattern hostAndPortPattern = Pattern.compile(regexForHostAndPort);
-            Matcher matcher = hostAndPortPattern.matcher(url);
-            if(matcher.find()) {
-                int start = matcher.start();
-                int end = matcher.end();
-                if (start >= 0 && end >= 0) {
-                    String hostAndPort = url.substring(start, end);
-                    String[] array = hostAndPort.split(":");
-                    if (array.length >= 2)
-                        return array[0];
-                }
-            }
-            throw new IllegalArgumentException("couldn't find pattern '" + regexForHostAndPort + "' in '" + url + "'");*/
             return supportGetHostAndPort(url,0);
         }catch(IllegalArgumentException e){
             logger.error(e.getMessage(),e);
@@ -804,20 +770,6 @@ public class SQLUtilities {
      */
     public static Integer getPortFromUrl(String url) {
         try {
-            /*String regexForHostAndPort = "[.\\w]+:\\d+";
-            Pattern hostAndPortPattern = Pattern.compile(regexForHostAndPort);
-            Matcher matcher = hostAndPortPattern.matcher(url);
-            if(matcher.find()) {
-                int start = matcher.start();
-                int end = matcher.end();
-                if (start >= 0 && end >= 0) {
-                    String hostAndPort = url.substring(start, end);
-                    String[] array = hostAndPort.split(":");
-                    if (array.length >= 2)
-                        return Integer.parseInt(array[1]);
-                }
-            }
-            throw new IllegalArgumentException("couldn't find pattern '" + regexForHostAndPort + "' in '" + url + "'");*/
             return Integer.parseInt(supportGetHostAndPort(url,1));
         }catch(IllegalArgumentException e){
             logger.error(e.getMessage(),e);
@@ -855,9 +807,9 @@ public class SQLUtilities {
                 String[] find = (matcher.group(0)).split("=");
                 return find[1].substring(0, find[1].length() - 1);
             }
-            throw new IllegalArgumentException("couldn't find pattern '" + pat.toString() + "' in '" + url + "'");
+            throw new IllegalArgumentException("couldn't find pattern username in '" + url + "'");
         }catch(IllegalArgumentException e){
-            logger.error(e.getMessage(),e);
+            logger.warn(e.getMessage());
             return null;
         }
     }
@@ -877,9 +829,9 @@ public class SQLUtilities {
                 String[] find = (matcher.group(0)).split("=");
                 return find[1].substring(0, find[1].length() - 1);
             }
-            throw new IllegalArgumentException("couldn't find pattern '" + pat.toString() + "' in '" + url + "'");
+            throw new IllegalArgumentException("couldn't find pattern password in '" + url + "'");
         }catch(IllegalArgumentException e){
-            logger.error(e.getMessage(),e);
+            logger.warn(e.getMessage());
             return null;
         }
     }
@@ -927,29 +879,56 @@ public class SQLUtilities {
         }
     }
 
-    public static void invokeClassDriverForDbType(SQLEnum.DBType dbType)
+    public static void invokeClassDriverForDbType(SQLEnum.DBDialect dbType)
             throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String name = dbType.name();
-        switch(name){
-            case "MYSQL": {
+        switch(dbType){
+            case MYSQL: {
                 try {
-                    invokeClassDriver(SQLEnum.DBDriver.MYSQL.getDriver()); //load driver//"com.sql.jdbc.Driver"
+                    invokeClassDriver(SQLEnum.DBDialect.MYSQL.getDriverClassName()); //load driver//"com.sql.jdbc.Driver"
                     break;
                 } catch (ClassNotFoundException e) {
-                    invokeClassDriver(SQLEnum.DBDriver.MYSQL_GJT.getDriver());
+                    invokeClassDriver(SQLEnum.DBDialect.MYSQL_GJT.getDriverClassName());
                     break;
                 }
             }
-            case "ORACLE":{
-                invokeClassDriver(SQLEnum.DBDriver.ORACLE.getDriver());//"oracle.jdbc.driver.OracleDriver"
+            case ORACLE:{
+                invokeClassDriver(SQLEnum.DBDialect.ORACLE.getDriverClassName());//"oracle.jdbc.driver.OracleDriver"
                 break;
             }
-            case "H2":{
-                invokeClassDriver(SQLEnum.DBDriver.H2.getDriver()); //"org.h2.Driver"
+            case H2:{
+                invokeClassDriver(SQLEnum.DBDialect.H2.getDriverClassName()); //"org.h2.Driver"
                 break;
             }
-            case "HSQL":{
-                invokeClassDriver(SQLEnum.DBDriver.HSQLDB.getDriver());//"org.hsqldb.jdbcDriver"
+            case CUBRID:{
+                invokeClassDriver(SQLEnum.DBDialect.CUBRID.getDriverClassName());//cubrid.jdbc.driver.CUBRIDDriver"
+                break;
+            }
+            case DERBY:{
+                invokeClassDriver(SQLEnum.DBDialect.DERBY.getDriverClassName());//"org.apache.derby.jdbc.ClientDriver"
+                break;
+            }
+            case FIREBIRD:{
+                invokeClassDriver(SQLEnum.DBDialect.FIREBIRD.getDriverClassName());//"org.firebirdsql.jdbc.FBDriver"
+                break;
+            }
+            case HSQLDB:{
+                invokeClassDriver(SQLEnum.DBDialect.HSQLDB.getDriverClassName());//"org.hsqldb.jdbcDriver"
+                break;
+            }
+            case MARIADB:{
+                invokeClassDriver(SQLEnum.DBDialect.MARIADB.getDriverClassName());//"org.mariadb.jdbc.Driver"
+                break;
+            }
+            case POSTGRES:{
+                invokeClassDriver(SQLEnum.DBDialect.POSTGRES.getDriverClassName());//"org.postgresql.Driver"
+                break;
+            }
+            case SQLSERVER:{
+                invokeClassDriver(SQLEnum.DBDialect.SQLSERVER.getDriverClassName());//"org.postgresql.Driver"
+                break;
+            }
+            case SQLITE:{
+                invokeClassDriver(SQLEnum.DBDialect.SQLITE.getDriverClassName());//"org.postgresql.Driver"
                 break;
             }
         }
@@ -960,9 +939,9 @@ public class SQLUtilities {
         Class.forName(driverClassName).newInstance(); //load driver//"com.sql.jdbc.Driver"
     }
 
-    public static void invokeClassDriverForDbDriver(SQLEnum.DBDriver driverClassName)
+    public static void invokeClassDriverForDbDriver(SQLEnum.DBDialect driverClassName)
             throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        Class.forName(driverClassName.getDriver()).newInstance(); //load driver//"com.sql.jdbc.Driver"
+        Class.forName(driverClassName.getDriverClassName()).newInstance(); //load driver//"com.sql.jdbc.Driver"
     }
 
 
@@ -1092,39 +1071,6 @@ public class SQLUtilities {
         }
     }
 
-    public static void main(String[] args) throws IOException, SQLException, URISyntaxException {
-        String userDir = new File(".").getCanonicalPath();
-        String userDir2 = StringUtilities.PROJECT_DIR;  String userDir3 = LogBackUtil.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-        LogBackUtil.console();
-        //test1 jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true
-        //test2 jdbc:postgresql://host:port/database?user=userName&password=pass
-
-        //WORK
-        //Connection conn = getMySqlConnection("localhost","3306","geodb","siimobility","siimobility");
-        //String url = "jdbc:postgresql://host:port/database?user=userName&password=pass";
-
-
-        //WORK
-      /* DataSource conn2 = getLocalConnection(
-                "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
-                "com.mysql.jdbc.Driver","siimobility","siimobility");*/
-
-        /*DataSource conn2 = getLocalPooledConnection(
-                "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
-                "com.mysql.jdbc.Driver","siimobility","siimobility");
-*/
-        executeSQL(LogBackUtil.getMySQLScript(),conn);
-        //WORK
-        /*DataSource conn3 = getLocalConnection("ds1");*/
-
-        //NOT WORK
-        /*Connection conn4 = getPooledConnection("ds1",
-                "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true","com.mysql.jdbc.Driver");*/
-
-        String test = "";
-
-    }
-
     public static Map<String, String> loadQueriesFromPropertiesFile(File queriesProperties) {
         Properties properties = new Properties();
         Map<String, String> queries = new TreeMap<>();
@@ -1164,6 +1110,41 @@ public class SQLUtilities {
         }
         return queries;
     }
+
+    public static void main(String[] args) throws IOException, SQLException, URISyntaxException {
+        String userDir = new File(".").getCanonicalPath();
+        String userDir2 = StringUtilities.PROJECT_DIR;  String userDir3 = LogBackUtil.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        LogBackUtil.console();
+        //test1 jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true
+        //test2 jdbc:postgresql://host:port/database?user=userName&password=pass
+
+        //WORK
+        //Connection conn = getMySqlConnection("localhost","3306","geodb","siimobility","siimobility");
+        //String url = "jdbc:postgresql://host:port/database?user=userName&password=pass";
+
+
+        //WORK
+      /* DataSource conn2 = getLocalConnection(
+                "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
+                "com.mysql.jdbc.Driver","siimobility","siimobility");*/
+
+        /*DataSource conn2 = getLocalPooledConnection(
+                "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
+                "com.mysql.jdbc.Driver","siimobility","siimobility");
+*/
+        executeSQL(LogBackUtil.getMySQLScript(),conn);
+        //WORK
+        /*DataSource conn3 = getLocalConnection("ds1");*/
+
+        //NOT WORK
+        /*Connection conn4 = getPooledConnection("ds1",
+                "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true","com.mysql.jdbc.Driver");*/
+
+        String test = "";
+
+    }
+
+
 
 
 }

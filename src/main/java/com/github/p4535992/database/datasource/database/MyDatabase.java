@@ -1,6 +1,5 @@
 package com.github.p4535992.database.datasource.database;
 
-import com.github.p4535992.database.datasource.MyDataSource;
 import com.github.p4535992.database.datasource.sql.query.MyQuery;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.jooq.DSLContext;
@@ -11,15 +10,16 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
-import java.util.Map;
 
-public interface MyDatabase extends MyDataSource{
+@SuppressWarnings("unchecked")
+public interface MyDatabase {
 
 	JdbcTemplate getJdbcTemplate();
 	DataSource getDataSource();
     Connection getConnection();
     DSLContext getDSLContext();
     SQLDialect getSQLDialect();
+	String prepareURL(String host, String port, String schema);
 
     //SessionFactory getSessionFactory();
 

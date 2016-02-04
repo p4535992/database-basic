@@ -8,7 +8,7 @@ import java.util.*;
 
  */
 public class DatabaseFactory {
-
+    @SuppressWarnings("rawtypes")
 	private final Map<String, Class<? extends AbstractDatabase>> databases;
 	private final Properties properties = new Properties();
 
@@ -34,6 +34,7 @@ public class DatabaseFactory {
 	 * @param databaseClass a class that extends {@link AbstractDatabase}.
 	 * @return the {@link AbstractDatabase} instance.
 	 */
+	@SuppressWarnings("rawtypes")
 	private static AbstractDatabase newInstance(Class<? extends AbstractDatabase> databaseClass) {
 		try {
 			return databaseClass.newInstance();
@@ -46,6 +47,7 @@ public class DatabaseFactory {
 	 * Adds a new {@link AbstractDatabase} implementation to the factory.
 	 * @param databaseClass a class that extends {@link AbstractDatabase}.
 	 */
+	@SuppressWarnings("rawtypes")
 	public void registerDatabase(Class<? extends AbstractDatabase> databaseClass) {
 		databases.put(newInstance(databaseClass).getDatabaseName().toLowerCase(), databaseClass);
 	}

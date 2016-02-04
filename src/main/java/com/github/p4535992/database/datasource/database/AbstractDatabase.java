@@ -28,6 +28,7 @@ import org.springframework.jdbc.core.*;
 
 /**
  */
+@SuppressWarnings("unchecked")
 public abstract class AbstractDatabase<T> implements MyDatabase {
 
     private static final org.slf4j.Logger logger =
@@ -79,6 +80,8 @@ public abstract class AbstractDatabase<T> implements MyDatabase {
 
     public abstract Connection getConnection();
 
+    public abstract String prepareURL(String host, String port, String schema);
+
     /**
 	 * Returns the {@link DataSource} that provides connections to your database.
 	 * @return a {@link DataSource} for your database.
@@ -97,10 +100,10 @@ public abstract class AbstractDatabase<T> implements MyDatabase {
     public abstract SQLDialect getSQLDialect();
 
     /*public void setDriverManager(Enumerator.DBDriver driver, Enumerator.DBConnector dialectDB, String host, String port, String user, String pass, String database) {
-        logger.info("DRIVER[:" + driver.getDriver() + "] ,URL[" + dialectDB.getConnector() + host + ":" + port + "/" + database + "]");
+        logger.info("DRIVER[:" + driver.getDriver() + "] ,URL[" + dialectDB.getJDBCConnector() + host + ":" + port + "/" + database + "]");
         DriverManagerDataSource driverManag = new DriverManagerDataSource();
         driverManag.setDriverClassName(driver.getDriver());//"com.mysql.jdbc.Driver"
-        driverManag.setUrl("" + dialectDB.getConnector() + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
+        driverManag.setUrl("" + dialectDB.getJDBCConnector() + host + ":" + port + "/" + database); //"jdbc:mysql://localhost:3306/jdbctest"
         driverManag.setUsername(user);
         driverManag.setPassword(pass);
         this.dataSource = driverManag;
@@ -114,7 +117,7 @@ public abstract class AbstractDatabase<T> implements MyDatabase {
             setNewJdbcTemplate();
             //NEW TRY WITH JOOQ
             this.dslContext = DSL.using(this.connection, JOOQUtilities.convertDialectDBToSQLDialectJOOQ(dialectDB.name()));
-            this.sqlDialect = JOOQUtilities.convertDialectDBToSQLDialectJOOQ(dialectDB.getConnector());
+            this.sqlDialect = JOOQUtilities.convertDialectDBToSQLDialectJOOQ(dialectDB.getJDBCConnector());
             jooqUtilities.setDslContext(dslContext);
             jooqUtilities.setSqlDialect(sqlDialect);
         }catch(SQLException e){

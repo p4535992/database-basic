@@ -31,6 +31,15 @@ compileJava {
     options.compilerArgs << '-XDignore.symbol.file'
     options.fork = true
     options.forkOptions.executable = 'javac'
+
+    options.compilerArgs = ['-Xlint:all,-path']
+
+    // enable all compiler warnings (GRADLE-1077)
+    //[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
+    // enable all compiler warnings (GRADLE-1077); eliminate path warnings
+    //[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all,-path']
+    // generate .classpath files without GRADLE_CACHE variable (GRADLE-1079)
+    //eclipseClasspath.variables = [:]
 }
 
 javadoc {
@@ -66,19 +75,13 @@ mainClassName = "com.github.p4535992.database.home.TestMain"
 sourceCompatibility = '1.7'
 targetCompatibility = '1.7'
 
-//dependencies versions
-//project.ext.set(
-//ext is shorthand for project.ext
-/*ext {
-    ver = [
-            slf4jVersion = '1.7.14',
-            springFrameWorkVersion = '4.2.4.RELEASE'
-    ]
-}*/
 ext.githubProjectName = 'database-basic'
 ext.slf4jVersion = '1.7.14'
 ext.springFrameWorkVersion = '4.2.4.RELEASE'
 ext.p4535992UtilityVersion = '1.6.8-SNAPSHOT'
+
+
+
 
 allprojects {
     repositories {
@@ -90,6 +93,10 @@ allprojects {
         maven { url 'http://mvn.linkeddata.org/content/groups/linkeddata.org/'} /*Sesame-Virtuoso mirror 3*/
     }
 }
+/*
+configure(javaprojects) {
+    testCompile group:'org.springframework',name:'spring-test',version:springFrameWorkVersion
+}*/
 
 
 dependencies {
@@ -98,12 +105,14 @@ dependencies {
     /* =============   */
     /* SPRINGFRAMEWORK */
     /* =============   */
+    testCompile group:'org.springframework',name:'spring-test',version:springFrameWorkVersion
     compile(
             [group:'org.springframework',name:'spring-jdbc',version: springFrameWorkVersion],
             [group:'org.springframework',name:'spring-core',version: springFrameWorkVersion],
             [group:'org.springframework',name:'spring-context',version: springFrameWorkVersion],
             [group:'org.springframework',name:'spring-web',version: springFrameWorkVersion],
             [group:'org.springframework',name:'spring-orm',version: springFrameWorkVersion],
+            [group:'org.springframework',name:'spring-webmvc',version: springFrameWorkVersion]
     )
 
     /* ============= */
@@ -114,18 +123,30 @@ dependencies {
             ['org.jooq:jooq-meta:3.7.2'],
             ['org.jooq:jooq-codegen:3.7.2']
     )
+
+    /* ============= */
+    /* TIKA          */
+    /* (not sure why i get a java.lang.NoClassDefFoundError: org/apache/tika/exception/TikaException wihtout it )*/
+    /* ============= */
+    compile( ['org.apache.tika:tika-app:1.11'],
+             ['org.apache.tika:tika-core:1.11'],
+             ['org.apache.tika:tika-parsers:1.11']
+    )
+
     compile  group:'com.github.p4535992',name:'utility',version: p4535992UtilityVersion
 
-/*    compile 'javax.persistence:persistence-api:1.0'
-    compile 'org.apache.commons:commons-lang3:3.4'*/
-   /* compile 'com.fasterxml.jackson.core:jackson-core:2.7.0'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.0'*/
-
-    compile 'mysql:mysql-connector-java:5.1.38'
+    /* ============= */
+    /* DRIVER JDBC   */
+    /* ============= */
+    compile(
+            ['mysql:mysql-connector-java:5.1.38'],
+            ['org.hsqldb:hsqldb:2.3.3'],
+            ['com.h2database:h2:1.4.191']
+    )
 
 
     compile 'com.jolbox:bonecp:0.8.0.RELEASE'
-    compile 'com.github.uniVocity:univocity-parsers:-SNAPSHOT'
+
     /* ============= */
     /* HIBERNATE     */
     /* ============= */
@@ -149,6 +170,13 @@ dependencies {
             ['joda-time:joda-time:2.9.2'],
             /*  To map JodaTime with database type */
             ['org.jadira.usertype:usertype.core:5.0.0.GA']
+    )
+
+    /* ============= */
+    /* MVC SUPPORT   */
+    /* ============= */
+    compile(
+            ['javax.servlet:javax.servlet-api:4.0.0-b01']
     )
     testCompile group: 'junit', name: 'junit', version: '4.11'
 

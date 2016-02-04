@@ -34,6 +34,11 @@ public class QueryImpl<T> extends AbstractQuery<T>{
     }
 
     @Override
+    public String prepareURL(String host, String port, String schema) {
+        return null;
+    }
+
+    @Override
     public JdbcTemplate getJdbcTemplate() {
         return null;
     }

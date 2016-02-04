@@ -1,6 +1,5 @@
 package com.github.p4535992.database.hibernate.impl;
-import com.github.p4535992.database.hibernate.dao.IGeoDocumentHibernateDao;
-import com.github.p4535992.database.hibernate.impl.generic.GenericHibernateDaoImpl;
+import com.github.p4535992.database.hibernate.GenericHibernateDaoImpl;
 import com.github.p4535992.database.model.GeoDocument;
 import org.hibernate.Interceptor;
 import org.hibernate.Session;

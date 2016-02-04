@@ -1,66 +1,100 @@
 package com.github.p4535992.database.datasource.sql;
 
+import java.sql.Driver;
+
 /**
  * Created by 4535992 on 01/02/2016.
+ * @author 4535992.
  */
 public class SQLEnum {
 
-    public enum DBType {MYSQL,H2,ORACLE,HSQLDB,SQL,DB2,HSQL,MARIADB,CUBRID,DERBY,FIREBIRD,POSTGRES,SQLITE}
+    public enum DBDialect{
+        CUBRID,DERBY,FIREBIRD,H2,HSQLDB,MARIADB,MYSQL,POSTGRES_9_3,POSTGRES_9_4,POSTGRES_9_5,
+        POSTGRES,SQLITE,ORACLE,SQLSERVER,MYSQL_GJT,NULL;
 
-    public enum DBDriver{MYSQL(0),MYSQL_GJT(1),H2(2),ORACLE(3),HSQLDB(4),CUBRID(5),DERBY(6),
-        FIREBIRD(7),MARIADB(8),POSTGRES(10),SQLITE(11);
-
-        private final Integer value;
-        DBDriver(Integer value) {
-            this.value = value;
-        }
-
-        public String getDriver(){
-            return toString();
-        }
-
-        @Override
-        public String toString() {
-            String driver;
-            switch (this) {
-                case MYSQL: driver = "com.mysql.jdbc.Driver"; break;
-                case MYSQL_GJT: driver = "org.gjt.mm.mysql.Driver"; break;
-                case ORACLE: driver = "oracle.jdbc.driver.OracleDriver"; break;
-                case H2: driver = "org.h2.Driver"; break;
-                case HSQLDB: driver = "org.hsqldb.jdbcDriver"; break;
-                case CUBRID: driver = "cubrid.jdbc.driver.CUBRIDDriver"; break;
-                case DERBY: driver = "org.apache.derby.jdbc.ClientDriver"; break;
-                case FIREBIRD: driver = "org.firebirdsql.jdbc.FBDriver"; break;
-                case MARIADB: driver = "org.mariadb.jdbc.Driver"; break;
-                case POSTGRES: driver = "org.postgresql.Driver"; break;
-                case SQLITE: driver = "org.sqlite.JDBC"; break;
-                default: driver = "java.sql.Driver"; break;
+        public String getHibernateDialect(){
+            switch(this) {
+                case CUBRID:
+                    return "org.hibernate.dialect.CUBRIDDialect";
+                case DERBY:
+                    return "org.hibernate.dialect.DerbyTenSevenDialect";
+                case FIREBIRD:
+                    return "org.hibernate.dialect.FirebirdDialect";
+                case H2:
+                    return "org.hibernate.dialect.H2Dialect";
+                case HSQLDB:
+                    return "org.hibernate.dialect.HSQLDialect";
+                case MARIADB:
+                case MYSQL:
+                    return "org.hibernate.dialect.MySQL5Dialect";
+                case POSTGRES_9_3:
+                    return "org.hibernate.dialect.PostgreSQL92Dialect";
+                case POSTGRES_9_4:
+                case POSTGRES_9_5:
+                case POSTGRES:
+                    return "org.hibernate.dialect.PostgreSQL94Dialect";
+                case SQLITE:
+                    return "";
+                case NULL: return null;
+                default:
+                    return "";
             }
-            return driver;
-        }
-    }
-
-    public enum DBConnector{MYSQL(0),H2(1),ORACLE(2),HSQLDB(3);
-
-        private final Integer value;
-        DBConnector(Integer value) {
-            this.value = value;
         }
 
-        public String getConnector(){
-            return toString();
+        public String getDriverClassName(){
+            return getJDBCDialect();
         }
 
-        @Override
-        public String toString() {
-            String driver ="";
-            switch (this) {
-                case MYSQL: driver = "jdbc:mysql://"; break;
-                case HSQLDB: driver = "jdbc:hsqldb:hsql://"; break;
-                case H2: driver = "jdbc:h2:tcp://"; break;
-                case ORACLE: driver = "jdbc:oracle:thin:@"; break;
+        public Class<? extends Driver> getDriverClass(){
+            switch(this){
+                case MYSQL: return com.mysql.jdbc.Driver.class;
+                case HSQLDB: return org.hsqldb.jdbcDriver.class;
+                case H2: return org.h2.Driver.class;
+                default: return null;
             }
-            return driver;
         }
+
+        public String getJDBCDialect(){
+            switch (this) {
+                case MYSQL: return "com.mysql.jdbc.Driver";
+                case MYSQL_GJT: return "org.gjt.mm.mysql.Driver";
+                case ORACLE: return "oracle.jdbc.driver.OracleDriver";
+                case H2: return "org.h2.Driver";
+                case HSQLDB: return "org.hsqldb.jdbcDriver";
+                case CUBRID: return "cubrid.jdbc.driver.CUBRIDDriver";
+                case DERBY: return "org.apache.derby.jdbc.ClientDriver";
+                case FIREBIRD: return "org.firebirdsql.jdbc.FBDriver";
+                case MARIADB: return "org.mariadb.jdbc.Driver";
+                case POSTGRES: return "org.postgresql.Driver";
+                case SQLITE: return "org.sqlite.JDBC";
+                case SQLSERVER: return "com.microsoft.sqlserver.jdbc.SQLServerDriver";  /*https://msdn.microsoft.com/it-it/library/ms378526%28v=sql.110%29.aspx*/
+                case NULL: return null;
+                default: return "java.sql.Driver";
+            }
+        }
+
+        public String getJDBCConnector(){
+            switch (this) {
+                case MYSQL: return "jdbc:mysql://";
+                case HSQLDB: return"jdbc:hsqldb:hsql://";
+                case H2: return "jdbc:h2:tcp://";
+                case ORACLE: return "jdbc:oracle:thin:@";
+                case SQLSERVER: return "jdbc:sqlserver://"; /*https://msdn.microsoft.com/it-it/library/ms378526%28v=sql.110%29.aspx*/
+                case CUBRID: return "";
+                case DERBY: return "";
+                case FIREBIRD: return "";
+                case MARIADB: return "";
+                case POSTGRES: return "";
+                case POSTGRES_9_3:return "";
+                case POSTGRES_9_4:return "";
+                case POSTGRES_9_5:return "";
+                case SQLITE: return "";
+                case NULL: return null;
+                default: return "";
+            }
+        }
+
+
+
     }
 }

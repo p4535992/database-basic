@@ -8,6 +8,7 @@ import com.github.p4535992.database.datasource.context.LocalContext;
 import com.github.p4535992.database.datasource.context.LocalContextFactory;
 import com.github.p4535992.database.datasource.sql.SQLUtilities;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 
 import javax.naming.InitialContext;
@@ -21,6 +22,7 @@ import java.util.*;
 
 /**
  * Created by 4535992 on 01/02/2016.
+ * @author 4535992.
  */
 public class DataSourceFactory {
 
@@ -36,11 +38,10 @@ public class DataSourceFactory {
 
     private DataSourceFactory() {}
 
-    private static LocalContext ctx;
-    private static Map<LocalContext,List<DataSource>> mapOfLocalContext = new HashMap<>();
+    private static Map<String,DataSource> dataSourceAlreadySetted = new HashMap<>();
 
-    public static Map<LocalContext, List<DataSource>> getMapOfLocalContext() {
-        return mapOfLocalContext;
+    public static Map<String,DataSource> getDataSourceAlreadySetted() {
+        return dataSourceAlreadySetted;
     }
 
     public static DataSource createDataSource(
@@ -50,7 +51,7 @@ public class DataSourceFactory {
     }
 
     public static DataSource createDataSource(
-            String dataSourceName,String jdbcUrl,SQLEnum.DBDriver dbDriver,
+            String dataSourceName,String jdbcUrl,SQLEnum.DBDialect dbDriver,
             String username,String password) {
         return createDataSourceBase(dataSourceName,jdbcUrl,dbDriver.toString(),username,password);
     }
@@ -61,7 +62,19 @@ public class DataSourceFactory {
 
     public static DataSource createDataSource(Connection conn) {
         try {
-            return createDataSourceBase(conn.getMetaData().getDatabaseProductVersion(),conn);
+            return createDataSourceBase(
+                    conn.getMetaData().getDatabaseProductName()+conn.getMetaData().getDatabaseProductVersion(),conn);
+        } catch (SQLException e) {
+            logger.warn(e.getMessage(),e);
+            return createDataSourceBase(conn.toString(),conn);
+        }
+    }
+
+    public static DataSource createDataSource(Connection conn,String username,String password) {
+        try {
+            return createDataSourceBase(
+                    conn.getMetaData().getDatabaseProductName()+conn.getMetaData().getDatabaseProductVersion(),
+                    conn,username,password);
         } catch (SQLException e) {
             logger.warn(e.getMessage(),e);
             return createDataSourceBase(conn.toString(),conn);
@@ -74,22 +87,31 @@ public class DataSourceFactory {
         return dataSource;
     }
 
-    public static DataSource createDataSourceWithSpring(Class<?> driverClass,String url,String username,String password){
+    public static DataSource createDataSourceWithSpring(
+            SQLEnum.DBDialect dbDialect,String url,String database,String username,String password){
+        SimpleDriverDataSource simpleDriverDataSource = new SimpleDriverDataSource();
+        simpleDriverDataSource.setDriverClass(dbDialect.getDriverClass());
+        simpleDriverDataSource.setUrl("jdbc:h2:target/database/example;AUTO_RECONNECT=TRUE");
+        simpleDriverDataSource.setUsername(username);
+        simpleDriverDataSource.setPassword(password);
+        addElementTOMap(simpleDriverDataSource);
+        return simpleDriverDataSource;
+    }
+
+    public static DataSource createDataSourceWithSpring(SQLEnum.DBDialect dbDialect,String url,String username,String password){
         DriverManagerDataSource driverManag = new DriverManagerDataSource();
-        // driverManag.setDriverClassName(driver.getDriver());//"com.mysql.jdbc.Driver"
-        driverManag.setDriverClassName(SQLConverter.convertClassDriverToDBDriver(driverClass).getDriver());
+        driverManag.setDriverClassName(dbDialect.getDriverClassName());
         driverManag.setUrl(url); //"jdbc:mysql://localhost:3306/jdbctest"
         driverManag.setUsername(username);
         driverManag.setPassword(password);
-        DataSource dataSource = driverManag;
-        addElementTOMap(dataSource);
-        return dataSource;
+        addElementTOMap(driverManag);
+        return driverManag;
 
     }
 
-    public static DataSource createDataSourceWithBoneCP(SQLEnum.DBDriver dbDriver, String url, String username, String password){
+    public static DataSource createDataSourceWithBoneCP(SQLEnum.DBDialect dbDriver, String url, String username, String password){
         BoneCPDataSource dataSource = new BoneCPDataSource();
-        dataSource.setDriverClass(dbDriver.getDriver());
+        dataSource.setDriverClass(dbDriver.getDriverClassName());
         dataSource.setJdbcUrl(url);
         dataSource.setUsername(username);
         dataSource.setPassword(password);
@@ -109,6 +131,7 @@ public class DataSourceFactory {
     private static DataSource createDataSourceBase(
             String dataSourceName,String jdbcUrl,String driverDbClassName,
             String username,String password) {
+        driverDbClassName = SQLConverter.toDBDialect(driverDbClassName).getDriverClassName();
         logger.info("Attempting to connect to the DataSource '" + dataSourceName+"'...");
         DataSource dataSource = null;
         try {
@@ -132,14 +155,17 @@ public class DataSourceFactory {
                 //Use LocalContext (all context set outer)
                /* LocalContext ctx = LocalContextFactory.createLocalContext("com.mysql.jdbc.Driver");
                 ctx.addDataSource("jdbc/js1","jdbc:mysql://dbserver1/dboneA", "username", "xxxpass");*/
-                ctx = LocalContextFactory.createLocalContext(driverDbClassName);
+                LocalContext ctx = LocalContextFactory.createLocalContext(driverDbClassName);
                 ctx.addDataSource(dataSourceName, jdbcUrl, username, password);
-                addElementTOMap(ctx,dataSourceName);
                 //callDataSource(dataSourceName);
             }
             logger.info("...establishing a context...");
         } catch (NamingException e) {
-            logger.error(e.getMessage(),e);
+            if(e.getMessage().contains("InitialContextFactoryBuilder already set")){
+                logger.warn("You already set this DataSource");
+            }else {
+                logger.error(e.getMessage(), e);
+            }
         }
 
         try {
@@ -148,6 +174,7 @@ public class DataSourceFactory {
             Connection conn = dataSource.getConnection();
             logger.info("...establishing a connection to the datasource '"+dataSourceName+"', " +
                     "connect to the database '"+dataSource.getConnection().getCatalog()+"'");
+            addElementTOMap(dataSourceName, dataSource);
         }catch (NamingException|SQLException e) {
             logger.error(e.getMessage(),e);
         }
@@ -158,34 +185,51 @@ public class DataSourceFactory {
         try {
             DatabaseMetaData meta = conn.getMetaData();
             String password = SQLUtilities.getPasswordFromUrl(meta.getURL());
+            String username = SQLUtilities.getUsernameFromUrl(meta.getURL());
             if (password == null || password.isEmpty()) password = "";
+            if (username == null || username.isEmpty()){
+                username = meta.getUserName();
+                if (username == null || username.isEmpty()) username = "root";
+                else {
+                    if(username.contains("@")){
+                        username = username.split("@")[0];
+                    }
+                }
+            }
             return createDataSourceBase(dataSourceName,
-                    meta.getURL(), meta.getDriverName(), meta.getUserName(), password);
+                    meta.getURL(), meta.getDriverName(), username, password);
         }catch(SQLException e){
             logger.error(e.getMessage(),e);
             return null;
         }
     }
 
-    private static void addElementTOMap(LocalContext ctx,String dataSourceName) throws NamingException {
-        List<DataSource> list = new ArrayList<>();
-        try {
-           list = mapOfLocalContext.get(ctx);
-        }catch(NullPointerException ignored){}
+    private static DataSource createDataSourceBase(String dataSourceName,Connection conn,String username,String password){
+        try{
+            DatabaseMetaData meta = conn.getMetaData();
+            return createDataSourceBase(dataSourceName,
+                    meta.getURL(), meta.getDriverName(), username, password);
+        }catch(SQLException e){
+            logger.error(e.getMessage(),e);
+            return null;
+        }
+    }
 
-        DataSource dataSource = (DataSource) ctx.lookup(dataSourceName);
-        if(list!= null && !list.isEmpty()) {
-            list.add(dataSource);
-            mapOfLocalContext.put(ctx,list);
+    private static void addElementTOMap(String dataSourceName,DataSource dataSource) throws NamingException {
+        if(dataSourceAlreadySetted.get(dataSourceName) == null) {
+            dataSourceAlreadySetted.put(dataSourceName,dataSource);
         }else{
-            mapOfLocalContext.put(ctx, Collections.singletonList(dataSource));
+            logger.warn("This datasource:"+dataSource+" is already setted.");
         }
     }
 
     private static void addElementTOMap(DataSource dataSource){
         try {
-            ctx = LocalContextFactory.createLocalContext(dataSource.getConnection().getMetaData().getDriverName());
-            addElementTOMap(ctx,dataSource.getConnection().getMetaData().getDatabaseProductVersion());
+            //ctx = LocalContextFactory.createLocalContext(dataSource.getConnection().getMetaData().getDriverName());
+            addElementTOMap(
+                    dataSource.getConnection().getMetaData().getDatabaseProductName()+
+                    dataSource.getConnection().getMetaData().getDatabaseProductVersion(),
+                    dataSource);
         } catch (NamingException | SQLException e) {
             logger.warn("Can't add the DataSource generated with Spring to the local Map of dataSource:"+e.getMessage());
         }
