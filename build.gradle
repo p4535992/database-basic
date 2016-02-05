@@ -96,11 +96,9 @@ mainClassName = "com.github.p4535992.database.home.TestMain"
 sourceCompatibility = '1.7'
 targetCompatibility = '1.7'
 
-ext.githubProjectName = 'database-basic'
+
 ext.slf4jVersion = '1.7.14'
 ext.springFrameWorkVersion = '4.2.4.RELEASE'
-ext.p4535992UtilityVersion = '1.6.8-SNAPSHOT'
-
 
 repositories {
     mavenCentral()
@@ -118,7 +116,6 @@ dependencies {
     /* SPRINGFRAMEWORK */
     /* =============   */
     testCompile group:'org.springframework',name:'spring-test',version:springFrameWorkVersion
-
     compile(
             [group:'org.springframework',name:'spring-jdbc',version: springFrameWorkVersion],
             [group:'org.springframework',name:'spring-core',version: springFrameWorkVersion],
@@ -137,14 +134,11 @@ dependencies {
 
     /* ============= */
     /* TIKA          */
-    /* (not sure why i get a java.lang.NoClassDefFoundError: org/apache/tika/exception/TikaException wihtout it )*/
+    /* (not sure why i get a java.lang.NoClassDefFoundError: org/apache/tika/exception/TikaException without it )*/
     /* ============= */
     compile 'org.apache.tika:tika-app:1.11',optional
     compile 'org.apache.tika:tika-core:1.11',optional
     compile 'org.apache.tika:tika-parsers:1.11',optional
-
-
-    /*compile  group:'com.github.p4535992',name:'utility',version: p4535992UtilityVersion*/
 
     /* ============= */
     /* DRIVER JDBC   */
@@ -155,8 +149,7 @@ dependencies {
             ['com.h2database:h2:1.4.191']
     )
 
-
-    compile 'com.jolbox:bonecp:0.8.0.RELEASE'
+    compile 'com.jolbox:bonecp:0.8.0.RELEASE',optional
 
     /* ============= */
     /* HIBERNATE     */
@@ -190,17 +183,13 @@ dependencies {
         ['com.opencsv:opencsv:3.7']
     )
 
-    compile(
-            ['com.fasterxml.jackson.core:jackson-databind:2.7.1']
-    )
-
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.1',optional
 
     /* ============= */
     /* MVC SUPPORT   */
     /* ============= */
-    compile(
-            ['javax.servlet:javax.servlet-api:4.0.0-b01']
-    )
+    compile 'javax.servlet:javax.servlet-api:4.0.0-b01',optional
+
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
 }
