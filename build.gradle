@@ -37,41 +37,16 @@ configurations {
     }
 }
 
-/*configurations.compile {
-    description = 'compile classpath'
-    transitive = true
-}
-
-configurations.runtime {
-    extendsFrom compile
-}*/
-
-
 compileJava {
     // This only works when forking and passing 'javac' as an executable
     options.compilerArgs << '-XDignore.symbol.file'
     options.fork = true
     options.forkOptions.executable = 'javac'
-
-    options.compilerArgs = ['-Xlint:all,-path']
-
-    // enable all compiler warnings (GRADLE-1077)
-    //[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all']
     // enable all compiler warnings (GRADLE-1077); eliminate path warnings
-    //[compileJava, compileTestJava]*.options*.compilerArgs = ['-Xlint:all,-path']
-    // generate .classpath files without GRADLE_CACHE variable (GRADLE-1079)
-    //eclipseClasspath.variables = [:]
+    options.compilerArgs = ['-Xlint:all,-path']
 }
 
 javadoc {
-    // These get ignored
-    // options.addStringOption('XDignore.symbol.file', null)
-    // options.addStringOption('XDignore.symbol.file')
-
-    // This one fails build - I am assuming it's trying to parse ''
-    // options.addStringOption('XDignore.symbol.file')
-
-    // This works, but it's an ugly hack
     options.addStringOption('XDignore.symbol.file', '-quiet')
     options.addStringOption("sourcepath", "")
 }
