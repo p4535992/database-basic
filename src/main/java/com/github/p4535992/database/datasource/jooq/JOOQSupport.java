@@ -1,8 +1,8 @@
 package com.github.p4535992.database.datasource.jooq;
 
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.string.StringUtilities;
 import com.github.p4535992.database.datasource.jooq.spring.config.PersistenceContext;
+import com.github.p4535992.database.util.ArrayUtilities;
+import com.github.p4535992.database.util.StringUtilities;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.regex.Pattern;

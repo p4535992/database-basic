@@ -8,10 +8,11 @@ import javax.persistence.PersistenceContext;
 import javax.sql.*;
 import com.github.p4535992.database.datasource.sql.query.MyQuery;
 import com.github.p4535992.database.datasource.sql.query.SQLQuery;
-import com.github.p4535992.util.bean.BeansKit;
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+
+import com.github.p4535992.database.util.ArrayUtilities;
+import com.github.p4535992.database.util.BeansKit;
+import com.github.p4535992.database.util.CollectionUtilities;
+import com.github.p4535992.database.util.StringUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
 import org.apache.commons.lang3.exception.ExceptionUtils;

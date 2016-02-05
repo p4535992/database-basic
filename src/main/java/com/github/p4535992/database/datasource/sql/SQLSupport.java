@@ -1,9 +1,7 @@
 package com.github.p4535992.database.datasource.sql;
 
-
-import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.database.sql.SQLConverter;
-import com.github.p4535992.util.reflection.ReflectionUtilities;
+import com.github.p4535992.database.util.CollectionUtilities;
+import com.github.p4535992.database.util.ReflectionUtilities;
 
 import javax.persistence.Column;
 import java.lang.annotation.Annotation;
@@ -171,7 +169,7 @@ public class SQLSupport<T>{
                 if(method!=null){
                     values[i] = ReflectionUtilities.invokeGetter(object, method);
                     Class<?> clazz = fields[i].getType();
-                    types[i] = SQLConverter.convertClass2SQLTypes(clazz);
+                    types[i] = SQLConverter.toSQLTypes(clazz);
                     i++;
                 }
             }
@@ -224,7 +222,7 @@ public class SQLSupport<T>{
         Class<?>[] classes =  ReflectionUtilities.getClassesByFieldsByAnnotation(clazz, aClass);
         //GET TYPES SQL
         for(Class<?> cl: classes){
-            types.add(SQLConverter.convertClass2SQLTypes(cl));
+            types.add(SQLConverter.toSQLTypes(cl));
         }
         return CollectionUtilities.toArray(types);
     }

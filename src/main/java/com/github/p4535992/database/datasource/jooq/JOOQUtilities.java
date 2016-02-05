@@ -1,10 +1,10 @@
 package com.github.p4535992.database.datasource.jooq;
 
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.database.jooq.JOOQSupport;
-import com.github.p4535992.util.database.sql.SQLUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+import com.github.p4535992.database.datasource.database.MyDatabase;
+import com.github.p4535992.database.datasource.database.MySqlDatabase;
 import com.github.p4535992.database.datasource.sql.SQLConverter;
+import com.github.p4535992.database.util.ArrayUtilities;
+import com.github.p4535992.database.util.StringUtilities;
 import org.jooq.*;
 import org.jooq.impl.*;
 
@@ -175,7 +175,7 @@ public class JOOQUtilities {
         Query iQuery = dslContext.insertInto(table).set(map);
         if(preparedStatement){
             String query = StringUtilities.toStringInline(iQuery.toString());
-            query = com.github.p4535992.util.database.jooq.JOOQSupport.getQueryInsertValuesParam(query, columns);
+            query = JOOQSupport.getQueryInsertValuesParam(query, columns);
             //return StringKit.toStringInline(iQuery.getSQL(ParamType.NAMED_OR_INLINED));
             return StringUtilities.toStringInline(query);
         }
@@ -801,7 +801,9 @@ public class JOOQUtilities {
      * @return the DSLContext set with Connection.
      */
     public static DSLContext getMySQLConnection(String host, String port, String database, String username, String password){
-        connection = SQLUtilities.getMySqlConnection(host, port, database, username, password);
+        //connection = SQLUtilities.getMySqlConnection(host, port, database, username, password);
+        MyDatabase dat = new MySqlDatabase(host,port,username,password,database);
+        connection = dat.getConnection();
         connProvider= new DefaultConnectionProvider(connection);
         connProvider.acquire();
         sqlDialect = SQLDialect.MYSQL;

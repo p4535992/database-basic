@@ -1,7 +1,7 @@
 package com.github.p4535992.database.datasource.sql.query;
 
-import com.github.p4535992.util.database.sql.SQLUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+import com.github.p4535992.database.datasource.sql.SQLUtilities;
+import com.github.p4535992.database.util.StringUtilities;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

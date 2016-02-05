@@ -1,15 +1,11 @@
 package com.github.p4535992.database.datasource.sql;
 
 import com.github.p4535992.database.datasource.database.MySqlDatabase;
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.collection.ListUtilities;
-import com.github.p4535992.util.database.jooq.JOOQUtilities;
-import com.github.p4535992.util.database.sql.SQLConverter;
-import com.github.p4535992.util.database.sql.runScript.ScriptRunner;
-import com.github.p4535992.util.file.FileUtilities;
-import com.github.p4535992.util.file.csv.opencsv.OpenCsvUtilities;
-import com.github.p4535992.util.log.logback.LogBackUtil;
-import com.github.p4535992.util.string.StringUtilities;
+import com.github.p4535992.database.datasource.database.performance.ConnectionWrapper;
+import com.github.p4535992.database.datasource.database.performance.JDBCLogger;
+import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
+import com.github.p4535992.database.datasource.sql.runScript.ScriptRunner;
+import com.github.p4535992.database.util.*;
 import com.opencsv.CSVReader;
 
 import javax.sql.DataSource;
@@ -18,6 +14,7 @@ import java.lang.reflect.Field;
 import java.net.URISyntaxException;
 import java.sql.*;
 import java.util.*;
+import java.util.Timer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -109,7 +106,7 @@ public class SQLUtilities {
         if(StringUtilities.isNullOrEmpty(dialectDB)){
             logger.warn("No connection database type detected fro this type;"+dialectDB);
             return null;
-        }else dialectDB = SQLConverter.convertDialectDatabaseToTypeNameId(dialectDB);
+        }else dialectDB = SQLConverter.toNameID(dialectDB);
         switch (dialectDB) {
             case "cubrid": return null;
             case "derby": return null;
@@ -141,7 +138,7 @@ public class SQLUtilities {
         try {
             invokeClassDriverForDbType(SQLEnum.DBType.HSQLDB);
             String url = SQLEnum.DBConnector.HSQLDB.getJDBCConnector() + host;
-            if (port != null && StringUtilities.isNumeric(port)) {
+            if (port != null && isNumeric(port)) {
                 url += ":" + port; //jdbc:hsqldb:data/database
             }
             url += "/" + database; //"jdbc:sql://localhost:3306/jdbctest"
@@ -173,7 +170,7 @@ public class SQLUtilities {
         try {
             invokeClassDriverForDbType(SQLEnum.DBType.MYSQL);
             String url = SQLEnum.DBConnector.MYSQL.getJDBCConnector() + host;
-            if (port != null && StringUtilities.isNumeric(port)) {
+            if (port != null && isNumeric(port)) {
                 url += ":" + port;
             }
             url += "/"  + database + "?noDatetimeStringSync=true"; //"jdbc:sql://localhost:3306/jdbctest"
@@ -333,7 +330,7 @@ public class SQLUtilities {
         while(result.next()){
             String columnName = result.getString(4);
             Integer columnType = result.getInt(5);
-            String type = SQLConverter.convertSQLTypes2String(columnType);
+            String type = SQLConverter.toStringValue(columnType);
             map.put(columnName,columnType);
         }
         return map;
@@ -424,7 +421,7 @@ public class SQLUtilities {
                 String columnName = columns.getString(4);
                 array.add(columnName);
             }
-            tableNames.put(tableName, ListUtilities.toArray(array));
+            tableNames.put(tableName, array.toArray(new String[array.size()]));
             array.clear();
         }
         return tableNames;
@@ -500,7 +497,7 @@ public class SQLUtilities {
      * @throws SQLException throw if any error is occurred during the execution of the query SQL.
      */
     public static ResultSet executeSQL(String sql, Connection conn, Statement stmt) throws SQLException {
-        //if the String query is a apth to a File batch
+        //if the String query is a path to a File batch
         if(sql.contains(FileUtilities.pathSeparatorReference)){ //Reference path
              if(FileUtilities.isFileValid(sql)){
                  executeSQL(new File(sql),conn);
@@ -687,11 +684,12 @@ public class SQLUtilities {
     public static Long getExecutionTime(String sql, Connection conn){
         //sql = sql.replaceAll("''","''''");
         //Connection dbConnection = getConnectionFromDriver(  );
-        //ConnectionWrapper dbConnection = new ConnectionWrapper(conn);
+        ConnectionWrapper dbConnection = new ConnectionWrapper(conn);
         Long calculate;
         try {
             stmt = conn.createStatement();
-            com.github.p4535992.util.string.Timer timer = new com.github.p4535992.util.string.Timer();
+           com.github.p4535992.database.util.Timer timer =
+                   new com.github.p4535992.database.util.Timer();
             timer.startTimer();
             ResultSet rs = stmt.executeQuery(sql);
             calculate = timer.endTimer();
@@ -700,8 +698,8 @@ public class SQLUtilities {
             logger.error("Can't get the execution time for the query:"+sql,e);
             return 0L;
         }
-        //Long calculate2 = JDBCLogger.getTime()/1000;
-        //if(calculate > calculate2) calculate = calculate2;
+        Long calculate2 = JDBCLogger.getTime()/1000;
+        if(calculate > calculate2) calculate = calculate2;
         logger.info("Query SQL result(s) in "+calculate+"ms.");
         return calculate;
     }
@@ -735,7 +733,7 @@ public class SQLUtilities {
                     int[] types = new int[values.length];
                     for(int i = 0; i < rowData.length; i++){
                         values[i] = rowData[i];
-                        types[i] = SQLConverter.convertStringToSQLTypes(values[i]);
+                        types[i] = SQLConverter.toSQLTypes(values[i]);
                     }
                     insertQuery = JOOQUtilities.insert(nameTable, columns,values,types);
                     SQLUtilities.executeSQL(insertQuery,connection);
@@ -1071,7 +1069,7 @@ public class SQLUtilities {
         }
     }
 
-    public static Map<String, String> loadQueriesFromPropertiesFile(File queriesProperties) {
+/*    public static Map<String, String> loadQueriesFromPropertiesFile(File queriesProperties) {
         Properties properties = new Properties();
         Map<String, String> queries = new TreeMap<>();
         try {
@@ -1111,38 +1109,22 @@ public class SQLUtilities {
         return queries;
     }
 
-    public static void main(String[] args) throws IOException, SQLException, URISyntaxException {
-        String userDir = new File(".").getCanonicalPath();
-        String userDir2 = StringUtilities.PROJECT_DIR;  String userDir3 = LogBackUtil.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-        LogBackUtil.console();
-        //test1 jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true
-        //test2 jdbc:postgresql://host:port/database?user=userName&password=pass
-
-        //WORK
-        //Connection conn = getMySqlConnection("localhost","3306","geodb","siimobility","siimobility");
-        //String url = "jdbc:postgresql://host:port/database?user=userName&password=pass";
-
-
-        //WORK
-      /* DataSource conn2 = getLocalConnection(
-                "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
-                "com.mysql.jdbc.Driver","siimobility","siimobility");*/
-
-        /*DataSource conn2 = getLocalPooledConnection(
-                "ds1","jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true",
-                "com.mysql.jdbc.Driver","siimobility","siimobility");
-*/
-        executeSQL(LogBackUtil.getMySQLScript(),conn);
-        //WORK
-        /*DataSource conn3 = getLocalConnection("ds1");*/
-
-        //NOT WORK
-        /*Connection conn4 = getPooledConnection("ds1",
-                "jdbc:mysql://localhost:3306/geodb?noDatetimeStringSync=true","com.mysql.jdbc.Driver");*/
-
-        String test = "";
-
+    private static boolean isNullOrEmpty(String text) {
+        return (text == null) || text.equals("") || text.isEmpty() || text.trim().isEmpty() ;
     }
+
+    private  static boolean isNumeric(Object str) {
+        Pattern IS_NUMERIC = Pattern.compile("(\\-|\\+)?\\d+(\\.\\d+)?");
+        //match a number with optional '-' and decimal.
+        if(str instanceof String){
+            String str2 = String.valueOf(str).replace(",",".").replace(" ",".");
+            return IS_NUMERIC.matcher(str2).matches();
+        }
+        else return isNumeric(String.valueOf(str));
+    }*/
+
+
+
 
 
 

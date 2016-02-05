@@ -1,6 +1,6 @@
 package com.github.p4535992.database.hibernate;
 
-import com.github.p4535992.util.calendar.DateUtilities;
+import com.github.p4535992.database.util.DateUtilities;
 import org.hibernate.Query;
 import org.hibernate.engine.spi.LoadQueryInfluencers;
 import org.hibernate.engine.spi.SessionFactoryImplementor;

@@ -4,7 +4,8 @@ import com.github.p4535992.database.datasource.DataSourceFactory;
 import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
 import com.github.p4535992.database.datasource.sql.SQLEnum;
 import com.github.p4535992.database.datasource.sql.SQLUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+
+import com.github.p4535992.database.util.StringUtilities;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
 import org.jooq.util.hsqldb.HSQLDBDatabase;

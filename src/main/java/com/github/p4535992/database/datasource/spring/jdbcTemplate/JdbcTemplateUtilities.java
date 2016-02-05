@@ -3,10 +3,11 @@ package com.github.p4535992.database.datasource.spring.jdbcTemplate;
 import com.github.p4535992.database.datasource.jooq.JOOQUtilities;
 import com.github.p4535992.database.datasource.sql.SQLSupport;
 import com.github.p4535992.database.datasource.sql.query.SQLQuery;
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.reflection.ReflectionUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+
+import com.github.p4535992.database.util.ArrayUtilities;
+import com.github.p4535992.database.util.CollectionUtilities;
+import com.github.p4535992.database.util.ReflectionUtilities;
+import com.github.p4535992.database.util.StringUtilities;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.jooq.Condition;

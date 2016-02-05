@@ -1,7 +1,6 @@
 package com.github.p4535992.database.home;
 
 
-import com.github.p4535992.util.log.logback.LogBackUtil;
 import com.github.p4535992.database.hibernate.impl.IGeoDocumentHibernateDao;
 import com.github.p4535992.database.hibernate.impl.GeoDocumentHibernateDaoImpl;
 import com.github.p4535992.database.hibernate.interceptor.impl.GeoDocumentInterceptor;
@@ -20,7 +19,7 @@ public class Test_Hibernate_Spring {
 
     public static void main(String[] args) throws Exception
     {
-        LogBackUtil.console();
+
         // Created
         IGeoDocumentHibernateDao dao = new GeoDocumentHibernateDaoImpl();
         GeoDocument geo = new GeoDocument(

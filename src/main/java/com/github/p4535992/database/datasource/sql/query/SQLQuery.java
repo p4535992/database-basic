@@ -1,9 +1,9 @@
 package com.github.p4535992.database.datasource.sql.query;
 
-import com.github.p4535992.util.collection.ArrayUtilities;
-import com.github.p4535992.util.collection.CollectionUtilities;
-import com.github.p4535992.util.database.sql.SQLConverter;
-import com.github.p4535992.util.file.FileUtilities;
+import com.github.p4535992.database.datasource.sql.SQLConverter;
+import com.github.p4535992.database.util.ArrayUtilities;
+import com.github.p4535992.database.util.CollectionUtilities;
+import com.github.p4535992.database.util.FileUtilities;
 
 import java.io.File;
 import java.util.Arrays;
@@ -39,7 +39,7 @@ public class SQLQuery {
      * @return string query.
      */
     public static String alterAddColumn(String yourTable, String nameNewColumn, int SQLTypes, Integer size){
-        return "ALTER TABLE " + yourTable + " ADD nameNewColumn "+ SQLConverter.convertSQLTypes2String(SQLTypes)+"("+size+");";
+        return "ALTER TABLE " + yourTable + " ADD nameNewColumn "+ SQLConverter.toStringValue(SQLTypes)+"("+size+");";
     }
 
     /**
@@ -176,7 +176,7 @@ public class SQLQuery {
         "    ( " +
         "        SELECT MIN("+nameKeyColumn+") as [DeleteID] " +
         "        FROM "+yourTable+" " +
-        "        GROUP BY "+ArrayUtilities.toString(cols,',')+" " +
+        "        GROUP BY "+ ArrayUtilities.toString(cols,',')+" " +
         "        HAVING COUNT(*) > 1 " +
         "    ) " +
         "END";
@@ -509,8 +509,8 @@ public class SQLQuery {
         bQuery.append("CREATE TABLE ").append(nameTable).append(" (").append("\n");
         for(int i=0; i < columns.length; i++){
             bQuery.append(columns[i]).append(" ") .append(
-                    SQLConverter.convertSQLTypes2String(
-                            SQLConverter.convertStringToSQLTypes(columns[i]))).append("(255)");
+                    SQLConverter.toStringValue(
+                            SQLConverter.toSQLTypes(columns[i]))).append("(255)");
             if(i < columns.length) bQuery.append(", ");
 
         }

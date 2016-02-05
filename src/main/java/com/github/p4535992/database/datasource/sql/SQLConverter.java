@@ -1,7 +1,7 @@
 package com.github.p4535992.database.datasource.sql;
 
-import com.github.p4535992.util.string.StringUtilities;
-import org.apache.jena.datatypes.xsd.XSDDatatype;
+
+import com.github.p4535992.database.util.StringUtilities;
 import org.jooq.SQLDialect;
 
 import java.lang.reflect.Field;
@@ -20,7 +20,7 @@ import java.util.Map;
 public class SQLConverter {
 
     private static final org.slf4j.Logger logger =
-            org.slf4j.LoggerFactory.getLogger(com.github.p4535992.util.database.sql.SQLConverter.class);
+            org.slf4j.LoggerFactory.getLogger(SQLConverter.class);
 
     /**
      * Method for get a mapt with all SQL java types.
@@ -204,7 +204,7 @@ public class SQLConverter {
         return "";
     }
 
-    public static XSDDatatype toXDDTypes(int type){
+    /*public static XSDDatatype toXDDTypes(int type){
         switch (type) {
             case Types.BIT: return XSDDatatype.XSDbyte;
             case Types.TINYINT: return XSDDatatype.XSDint;
@@ -244,7 +244,7 @@ public class SQLConverter {
             //case Types.SQLXML:return "SQLXML";
             default: return XSDDatatype.XSDstring;
         }
-    }
+    }*/
 
     ////////////////////////////////////////////////////////////////////////////////////////////
 

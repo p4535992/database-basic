@@ -1,8 +1,9 @@
 package com.github.p4535992.database.hibernate;
 
-import com.github.p4535992.util.bean.BeansKit;
+import com.github.p4535992.database.util.BeansKit;
 
-import com.github.p4535992.util.string.StringUtilities;
+
+import com.github.p4535992.database.util.StringUtilities;
 import org.hibernate.Interceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

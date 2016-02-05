@@ -1,7 +1,7 @@
 package com.github.p4535992.database.hibernate;
 
-import com.github.p4535992.util.reflection.ReflectionUtilities;
-import com.github.p4535992.util.string.StringUtilities;
+import com.github.p4535992.database.util.ReflectionUtilities;
+import com.github.p4535992.database.util.StringUtilities;
 import org.hibernate.*;
 import org.hibernate.InstantiationException;
 import org.hibernate.criterion.Criterion;
