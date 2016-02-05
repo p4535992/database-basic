@@ -27,6 +27,25 @@ publishing {
     }
 }
 
+configurations {
+    compile {
+        description = 'compile classpath'
+        transitive = true
+    }
+    runtime {
+        extendsFrom compile
+    }
+}
+
+/*configurations.compile {
+    description = 'compile classpath'
+    transitive = true
+}
+
+configurations.runtime {
+    extendsFrom compile
+}*/
+
 
 compileJava {
     // This only works when forking and passing 'javac' as an executable
