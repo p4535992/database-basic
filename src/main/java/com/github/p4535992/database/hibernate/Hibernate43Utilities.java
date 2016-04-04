@@ -775,7 +775,7 @@ public class Hibernate43Utilities<T> {
             //NOT WORK
             //object = (T) criteria.setFirstResult((Integer) id);
             //SystemLog.message("[HIBERNATE] Select the item:" + object.toString());
-            object = session.load(cl, id);
+            object = (T) session.load(cl, id);
             logger.info("GeoDocument you find:" + object.toString());
         } catch (RuntimeException e) {
             if (trns != null) { trns.rollback();}

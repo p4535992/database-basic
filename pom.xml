@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.p4535992</groupId>
     <artifactId>database-basic</artifactId>
-    <version>1.6.8</version>
+    <version>1.6.10</version>
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
@@ -52,11 +52,10 @@
         <tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
         <nbm-maven-plugin.version>4.1</nbm-maven-plugin.version>      
         <!-- Logging -->
-        <org.slf4j.version>1.7.13</org.slf4j.version>
+        <org.slf4j.version>1.7.16</org.slf4j.version>
         <!-- SPRING FRAMEWORK -->
-        <io.spring.platform-version>1.1.2.RELEASE</io.spring.platform-version>
-        <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
-        <spring-boot-starter-logging.version>1.3.0.RELEASE</spring-boot-starter-logging.version>                    
+        <org.springframework.boot.version>1.3.3.RELEASE</org.springframework.boot.version>
+
     </properties>
 
     <dependencyManagement>
@@ -67,33 +66,26 @@
                 <version>3.0.1</version>
                 <optional>true</optional>
             </dependency>
+            <!-- Spring Boot Dependency -->
             <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>${org.springframework.version}</version>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${org.springframework.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
                 <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
                     <exclusion>
                         <groupId>commons-logging</groupId>
                         <artifactId>commons-logging</artifactId>
                     </exclusion>
                 </exclusions>
-                <type>pom</type>
-                <scope>import</scope>    
-            </dependency>                     
-            <!-- LOGGING -->
-            <!-- jul-to-slf4j + jcl-over-slf4j + log4j-over-slf4j + logback-classic -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-logging</artifactId>
-                <version>${spring-boot-starter-logging.version}</version>
-                <!-- <exclusions>
-                     <exclusion>
-                         <groupId>org.slf4j</groupId>
-                         <artifactId>slf4j-api</artifactId>
-                     </exclusion>
-                 </exclusions>-->
-                <optional>true</optional>
             </dependency>
+
             <!-- The SLF4J - take out because already present in logback classic -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -123,42 +115,113 @@
             <optional>true</optional>
         </dependency>
              
-        <!-- Spring base -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!-- Spring MVC -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <optional>true</optional>
-        </dependency>
-        
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jooq</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>        
         </dependency>
-
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>     
+        </dependency>
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0.2</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.12</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>3.7</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+            <optional>true</optional>
+        </dependency>
+
+
+
+
+        <dependency>
+            <groupId>com.jolbox</groupId>
+            <artifactId>bonecp</artifactId>
+            <version>0.8.0.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.univocity</groupId>
+            <artifactId>univocity-parsers</artifactId>
+            <version>2.0.1</version>
+            <optional>true</optional>
         </dependency>
 
         <!-- MAVEN PLUGIN DEPENDENCY-->
@@ -178,7 +241,11 @@
             </exclusions>
             <optional>true</optional>
         </dependency>
-
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>3.7.2</version>
+        </dependency>
     </dependencies>
 
 
@@ -225,7 +292,17 @@
                 <version>${nbm-maven-plugin.version}</version>
                 <extensions>true</extensions>
             </plugin>
-
+            <!-- ****************************************        -->
+            <!-- SpringFramework Boot  Plugin                    -->
+            <!-- ****************************************        -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${org.springframework.boot.version}</version>
+            </plugin>
+            <!-- ****************************************        -->
+            <!-- Eclipse Plugin                                  -->
+            <!-- ****************************************        -->
             <plugin>
                 <artifactId>maven-eclipse-plugin</artifactId>
                 <version>${maven-eclipse-plugin.version}</version>
@@ -240,7 +317,9 @@
                     <downloadJavadocs>true</downloadJavadocs>
                 </configuration>
             </plugin>
-
+            <!-- ****************************************        -->
+            <!-- Apache Maven Compiler Plugin                    -->
+            <!-- ****************************************        -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -264,7 +343,9 @@
                      </archive>-->
                 </configuration>
             </plugin>
-
+            <!-- ****************************************        -->
+            <!-- Apache Maven Source Plugin                      -->
+            <!-- ****************************************        -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -278,7 +359,9 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- ****************************************        -->
+            <!-- Apache Maven Javadoc Plugin                     -->
+            <!-- ****************************************        -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -297,6 +380,29 @@
                     <additionalparam>-Xdoclint:none</additionalparam>
                     <failOnError>false</failOnError>
                 </configuration>-->
+            </plugin>
+            <!-- ****************************************-->
+            <!-- Copy dependency jar to a m2 folder  -->
+            <!-- ****************************************-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${user.dir}/lib</outputDirectory>
+                            <overWriteReleases>false</overWriteReleases>
+                            <overWriteSnapshots>false</overWriteSnapshots>
+                            <overWriteIfNewer>true</overWriteIfNewer>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

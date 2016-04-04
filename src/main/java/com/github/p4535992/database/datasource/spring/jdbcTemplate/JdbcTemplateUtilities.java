@@ -60,7 +60,7 @@ public class JdbcTemplateUtilities {
      * @param jdbcTemplate the {@link JdbcTemplate} to use.
      * @param query the {@link String} SQL query to invoke.
      * @param myInsertTable the {@link String} name of the Insert Table.
-     * @param erase the [@link Boolean} if true drop a table with the same name if already exists.
+     * @param erase the {@link Boolean} if true drop a table with the same name if already exists.
      */
     public static void create(JdbcTemplate jdbcTemplate,String myInsertTable,String query, boolean erase) {
         if(myInsertTable.isEmpty()) {
@@ -443,10 +443,10 @@ public class JdbcTemplateUtilities {
      * @param values_where he {@link Object} of the values where.
      * @param limit the {@link Integer} limit of the SQL query.
      * @param offset the {@link Integer} offset of the SQL query.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
      * @param classObjectToInsert the {@link Class} of the object to insert.
      * @param <T> the generic type.
-     * @return the [@link List} of elements.
+     * @return the {@link List} of elements.
      */
     public static <T> List<T> trySelect(JdbcTemplate jdbcTemplate,String mySelectTable,final String[] columns,
                                  String[] columns_where, Object[] values_where, Integer limit, Integer offset,
@@ -506,10 +506,10 @@ public class JdbcTemplateUtilities {
      * @param values_where he {@link Object} of the values where.
      * @param limit the {@link Integer} limit of the SQL query.
      * @param offset the {@link Integer} offset of the SQL query.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
      * @param classObjectToInsert the {@link Class} of the object to insert.
      * @param <T> the generic type.
-     * @return the [@link List} of elements.
+     * @return the {@link List} of elements.
      */
     public static <T> List<T> trySelectWithRowMap(JdbcTemplate jdbcTemplate, String mySelectTable,
                                            String[] columns, String[] columns_where, Object[] values_where, Integer limit, Integer offset,
@@ -600,10 +600,10 @@ public class JdbcTemplateUtilities {
      * @param values_where he {@link Object} of the values where.
      * @param limit the {@link Integer} limit of the SQL query.
      * @param offset the {@link Integer} offset of the SQL query.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
      * @param classObjectToInsert the {@link Class} of the object to insert.
      * @param <T> the generic type.
-     * @return the [@link List} of elements.
+     * @return the {@link List} of elements.
      */
     public static <T> List<T> trySelectWithResultSetExtractor(JdbcTemplate jdbcTemplate, String mySelectTable,
             String[] columns,String[] columns_where,Object[] values_where,Integer limit,Integer offset,
@@ -706,8 +706,8 @@ public class JdbcTemplateUtilities {
      * @param column the {@link String} array of columns.
      * @param column_where the {@link String} of the columns where.
      * @param value_where he {@link Object} of the values where.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
-     * @return  the [@link List} of elements.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
+     * @return  the {@link List} of elements.
      */
     public static List<Object> select(JdbcTemplate jdbcTemplate, String mySelectTable,String column,String column_where,Object value_where,
                                List<org.jooq.Condition> conditions) {
@@ -723,8 +723,8 @@ public class JdbcTemplateUtilities {
      * @param value_where he {@link Object} of the values where.
      * @param limit the {@link Integer} limit of the SQL query.
      * @param offset the {@link Integer} offset of the SQL query.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
-     * @return  the [@link List} of elements.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
+     * @return  the {@link List} of elements.
      */
     public static List<Object> select(JdbcTemplate jdbcTemplate, String mySelectTable,
             String column,String column_where,Object value_where,Integer limit,Integer offset,List<org.jooq.Condition> conditions){
@@ -766,7 +766,7 @@ public class JdbcTemplateUtilities {
      * @param columns the {@link String[]} array of columns.
      * @param columns_where the {@link String} of the columns where.
      * @param values_where he {@link Object} of the values where.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
      * @return the {@link List} of {@link List} of {@link Object[]}.
      */
     public static List<List<Object[]>> select(JdbcTemplate jdbcTemplate, String mySelectTable,
@@ -783,7 +783,7 @@ public class JdbcTemplateUtilities {
      * @param values_where he {@link Object} of the values where.
      * @param limit the {@link Integer} limit of the SQL query.
      * @param offset the {@link Integer} offset of the SQL query.
-     * @param conditions the {@link List} of {@link org.jooq.Condition>}.
+     * @param conditions the {@link List} of {@link org.jooq.Condition}.
      * @return the {@link List} of {@link List} of {@link Object[]}.
      */
     public static List<List<Object[]>> select(JdbcTemplate jdbcTemplate, String mySelectTable,

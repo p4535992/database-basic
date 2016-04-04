@@ -124,7 +124,7 @@ public class SQLUtilities {
         }
     }
 
-    /**
+    /*
      * Method to get a HSQL connection.
      * @param host String name of the host where is the server.
      * @param port String number of the port where the server communicate.
@@ -155,7 +155,7 @@ public class SQLUtilities {
         return conn;
     }*/
 
-    /**
+    /*
      * Method to get a MySQL connection.
      * @param host host where the server is.
      * @param port number of the port of the server.
@@ -192,7 +192,7 @@ public class SQLUtilities {
         return conn;
     }*/
 
-    /**
+    /*
      * Method to get a MySQL connection.
      * @param host string name of the host where is it the database
      * @param database string name of the database.
@@ -205,7 +205,7 @@ public class SQLUtilities {
         return getMySqlConnection(host,null,database,username,password);
     }*/
 
-    /**
+    /*
      * Method to get a MySQL connection.
      * @param hostAndDatabase string name of the host where is it the database
      * @param username string username.
@@ -359,6 +359,7 @@ public class SQLUtilities {
     /**
      * Method to get a Array of COlumns of The table.
      * @param nameOfTable string name of the table.
+     * @param dataSource  the {@link DataSource}.
      * @return a Array Collection filled with the name of the columns of the table.
      */
     public static String[] getColumns(DataSource dataSource,String nameOfTable){
@@ -966,7 +967,7 @@ public class SQLUtilities {
     }*/
 
 
-    /**
+    /*
      * https://www.safaribooksonline.com/library/view/java-enterprise-best/0596003846/ch04.html
      * http://penguindreams.org/blog/running-beans-that-use-application-server-datasources-locally/
      * http://www.java2s.com/Code/Java/Database-SQL-JDBC/MiniConnectionPoolManager.htm

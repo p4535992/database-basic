@@ -25,8 +25,8 @@ public class SQLConverter {
     /**
      * Method for get a mapt with all SQL java types.
      * href: http://www.java2s.com/Code/Java/Database-SQL-JDBC/convertingajavasqlTypesintegervalueintoaprintablename.htm.
-     * @param jdbcType code int of the type sql.
-     * @return map of SQL Types with name
+     * @param jdbcType code the {@link Integer} of the type sql.
+     * @return the {@link Map} of SQL Types with name
      */
     public static Map<Integer,String> toJdbcTypeName(int jdbcType) {
         Map<Integer,String> map = new HashMap<>();
@@ -45,9 +45,9 @@ public class SQLConverter {
     }
 
     /**
-     * method to convert a String to a SQL Type.
-     * @param value the String value to convert.
-     * @return the SQL Type of the value.
+     * Method to convert a String to a SQL Type.
+     * @param value the {@link String} value to convert.
+     * @return the {@link Integer} SQL Type of the value.
      */
     public static int toSQLTypes(String value){
         if(value == null) return Types.NULL;
@@ -62,8 +62,8 @@ public class SQLConverter {
 
     /**
      * Method for convert a SQLTypes to a java class.
-     * @param sqlTypes identificator for the SQL java types.
-     * @return the corespondetn java class.
+     * @param sqlTypes the {@link Integer} identificator for the SQL java types.
+     * @return the {@link Class} relative java class.
      */
     public static Class<?> toClassTypes(int sqlTypes) {
         switch (sqlTypes) {
@@ -108,8 +108,8 @@ public class SQLConverter {
 
     /**
      * Method for convert a java class to a SQLTypes.
-     * @param aClass the correspondent java class.
-     * @return the identificator for the SQL java types.
+     * @param aClass the {@link Class} correspondent java class.
+     * @return the {@link Integer} identificator for the SQL java types.
      */
     public static int toSQLTypes(Class<?> aClass) {
         if(aClass.getName().equals(String.class.getName()))return  Types.VARCHAR;
@@ -132,8 +132,8 @@ public class SQLConverter {
 
     /**
      * Method for convert a SQLTypes to a Stirng name of the types.
-     * @param sqlTypes SQL types.
-     * @return the string name of the SQL types.
+     * @param sqlTypes the {@link Integer} SQL types.
+     * @return the {@link String} name of the SQL types.
      */
     public static String toStringValue(int sqlTypes) {
         switch (sqlTypes) {
@@ -183,8 +183,8 @@ public class SQLConverter {
 
     /**
      * Method to convert a DialectDatabase of JOOQ to a String name for a correct cast.
-     * @param dialectDb the String to cast to a correct format.
-     * @return the String with correct format.
+     * @param dialectDb the {@link String} to cast to a correct format.
+     * @return the {@link String} with correct format.
      */
     public static String toNameID(String dialectDb){
         if(dialectDb.toLowerCase().contains("mysql"))return "mysql";
@@ -267,7 +267,8 @@ public class SQLConverter {
     }
 
     /**
-     * "Guess" the JDBC driver from a connection URL.
+     * @param  url the {@link String} url connection to the database.
+     * @return "Guess" the JDBC driver from a connection URL.
      */
     public static String toDriverClassName(String url){
         switch(toDBDialect(url)){
@@ -352,7 +353,8 @@ public class SQLConverter {
     }
 
     /**
-     * "Guess" the {@link SQLDialect} from a connection URL.
+     * @param  url the {@link String} url connection to the database.
+     * @return "Guess" the {@link SQLDialect} from a connection URL.
      */
     public static SQLDialect toSQLDialect(String url) {
        // return JDBCUtils.dialect(url);
@@ -402,7 +404,8 @@ public class SQLConverter {
     }
 
     /**
-     * "Guess" the {@link SQLDialect} from a connection URL.
+     * @param connection the {@link Connection} to the database.
+     * @return "Guess" the {@link SQLDialect} from a connection URL.
      */
     public static SQLDialect toSQLDialect(Connection connection) {
        // return JDBCUtils.dialect(conn);
@@ -435,7 +438,7 @@ public class SQLConverter {
             case POSTGRES: return SQLEnum.DBDialect.POSTGRES;
             case POSTGRES_9_3: return SQLEnum.DBDialect.POSTGRES;
             case POSTGRES_9_4: return SQLEnum.DBDialect.POSTGRES;
-            case POSTGRES_9_5: return SQLEnum.DBDialect.POSTGRES;
+            //case POSTGRES_9_5: return SQLEnum.DBDialect.POSTGRES;
             case SQLITE: return SQLEnum.DBDialect.SQLITE;
             default:{
                 logger.error("Can't convert the SqlDialect:"+sqlDialect.name()+" to a DBType");
