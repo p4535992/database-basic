@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
-public interface MyDatabase {
+public interface DatabaseBasic {
 
 	JdbcTemplate getJdbcTemplate();
 	DataSource getDataSource();

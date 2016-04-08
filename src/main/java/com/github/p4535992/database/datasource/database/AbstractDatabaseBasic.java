@@ -29,10 +29,10 @@ import org.springframework.jdbc.core.*;
 /**
  */
 @SuppressWarnings("unchecked")
-public abstract class AbstractDatabase<T> implements MyDatabase {
+public abstract class AbstractDatabaseBasic<T> implements DatabaseBasic {
 
     private static final org.slf4j.Logger logger =
-            org.slf4j.LoggerFactory.getLogger(AbstractDatabase.class);
+            org.slf4j.LoggerFactory.getLogger(AbstractDatabaseBasic.class);
 
     //protected DriverManagerDataSource driverManag;
     protected JdbcTemplate jdbcTemplate;
@@ -53,7 +53,7 @@ public abstract class AbstractDatabase<T> implements MyDatabase {
     protected JOOQUtilities jooqUtilities = JOOQUtilities.getIstance();
 
     @SuppressWarnings("unchecked")
-    public AbstractDatabase() {
+    public AbstractDatabaseBasic() {
         java.lang.reflect.Type t = getClass().getGenericSuperclass();
         java.lang.reflect.ParameterizedType pt = (java.lang.reflect.ParameterizedType) t;
         this.cl = (Class) pt.getActualTypeArguments()[0];
@@ -157,12 +157,12 @@ public abstract class AbstractDatabase<T> implements MyDatabase {
 
     @Override
     public void loadSpringConfig(String filePathXml) throws IOException {
-        context = BeansKit.tryGetContextSpring(filePathXml,AbstractDatabase.class);
+        context = BeansKit.tryGetContextSpring(filePathXml,AbstractDatabaseBasic.class);
     }
 
     @Override
     public void loadSpringConfig(String[] filesPathsXml) throws IOException {
-        context = BeansKit.tryGetContextSpring(filesPathsXml,AbstractDatabase.class);
+        context = BeansKit.tryGetContextSpring(filesPathsXml,AbstractDatabaseBasic.class);
     }
 
     @Override
