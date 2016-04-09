@@ -1,6 +1,7 @@
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\dto\ValidationError.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\todo\dto\TodoDTO.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\mvc\config\db\DerbyDataSource.java
+H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\DatabaseBasic.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\performance\ResultSetWrapper.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\DateTimeConstants.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\mvc\config\SpringWebConfig.java
@@ -10,6 +11,7 @@ H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\hibernate\SQLQueryHibernate.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\DataSourceIntializer.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\mvc\controller\WelcomeController.java
+H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\AbstractDatabaseBasic.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\util\BeansKit.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\service\DateTimeService.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\model\InfoDocument.java
@@ -32,10 +34,8 @@ H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\spring\jdbcTemplate\JdbcTemplateUtilities.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\sql\query\MyQuery.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\performance\DatabaseMetaDataWrapper.java
-H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\sql\SQLUtilities.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\sql\SQLSupport.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\sql\query\MySQLQuery.java
-H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\AbstractDatabase.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\json\JodaModule.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\context\LocalDataSource.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\util\ClassLoaderUtil.java
@@ -44,6 +44,7 @@ H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\util\DateUtilities.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\performance\StatementWrapper.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\mvc\config\db\HsqlDataSource.java
+H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\sql\SQLUtility.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\util\ReflectionUtilities.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\DatabaseFactory.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\controller\FrontendLoaderController.java
@@ -83,7 +84,6 @@ H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\hibernate\impl\IGeoDocumentHibernateDao.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\util\IOUtilities.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\util\Patterns.java
-H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\database\MyDatabase.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\hibernate\Hibernate43Utilities.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\dto\RestError.java
 H:\Marco 2016-04\EAT 1.6.10\EAT\database-basic\src\main\java\com\github\p4535992\database\datasource\jooq\spring\common\json\CustomLocalDateTimeSerializer.java
